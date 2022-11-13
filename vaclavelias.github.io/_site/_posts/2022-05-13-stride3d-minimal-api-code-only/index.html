@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+        <input type="checkbox" id="navbar-toggle-cbox">
+        <a class="navbar-brand" href="/">Václav Eliáš</a>
+        <label for="navbar-toggle-cbox" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </label>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/blog/">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tags.html">Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/archive.html">Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/VasoElias">Twitter</a>
+                </li>
+                <!--<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>-->
+                <!--<li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+            </li>-->
+            </ul>
+            <!--<form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>-->
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="row postcontent">
+            <div class="col-12">
+                <article>
+                    <h1></h1>
+                    <div class="entry-meta entry-meta-layout" style="text-align:center;">
+                        <p style="text-align:center;font-size:14px;color:#616161;margin-top: 20px;padding-top: 6px;border-top: 2px solid #979593;display: inline-block;" class="x-hidden-focus">
+                            Fri May 13 2022 01:00:00 GMT+0100 (British Summer Time)
+                        </p>
+                    </div>
+                    <p>12 lines of code, this is what it takes to run Stride 3D example below (plus some <code>usings</code> on the top).</p>
+<p>This works only with <a href="https://www.stride3d.net/">Stride</a> <strong>4.1+</strong>.</p>
+<p>Follow the steps in this <a href="https://github.com/VaclavElias/stride-code-only">stride-code-only</a> repository.</p>
+<p>Related <a href="https://twitter.com/VasoElias/status/1525162302487543809">tweet</a>.</p>
+<pre><code class="language-csharp">using var game = new Game();
+
+game.Run(start: (Scene rootScene) =&gt;
+{
+    game.SetupBase3DScene();
+
+    var entity = new Entity(new Vector3(1f, 0.5f, 3f));
+
+    entity.Add(new ModelComponent(new CubeProceduralModel().Generate(game.Services)));
+
+    entity.Scene = rootScene;
+});
+</code></pre>
+
+                    <hr />
+                    <p>
+                        
+                    </p>
+                    <p>
+                        Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions">GitHub Discussion</a>.
+                    </p>
+                </article>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                
+            </div>
+            <div class="col-md-6 text-md-end">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

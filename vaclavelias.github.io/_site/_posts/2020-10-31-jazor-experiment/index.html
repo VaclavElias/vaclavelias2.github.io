@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+        <input type="checkbox" id="navbar-toggle-cbox">
+        <a class="navbar-brand" href="/">Václav Eliáš</a>
+        <label for="navbar-toggle-cbox" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </label>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/blog/">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tags.html">Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/archive.html">Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/VasoElias">Twitter</a>
+                </li>
+                <!--<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>-->
+                <!--<li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+            </li>-->
+            </ul>
+            <!--<form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>-->
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="row postcontent">
+            <div class="col-12">
+                <article>
+                    <h1></h1>
+                    <div class="entry-meta entry-meta-layout" style="text-align:center;">
+                        <p style="text-align:center;font-size:14px;color:#616161;margin-top: 20px;padding-top: 6px;border-top: 2px solid #979593;display: inline-block;" class="x-hidden-focus">
+                            Sat Oct 31 2020 00:00:00 GMT+0000 (Greenwich Mean Time)
+                        </p>
+                    </div>
+                    <p>This experiment library helps with very common actions on the website which involve repeating JavaScript code across multiple different projects. Click a button or a link, do something in the backend and UI. This library takes an approach rather updating whole HTML blocks than granular tags with JSON and JavaScript libraries, so there is no need fiddling and mapping JSON objects to whatever UI you have.</p>
+<p>You might find this approach useful in certain project cases if you want to write minimum or no JavaScript. Still, JavaScript knowledge is required in certain scenarios.</p>
+<p>There is a crossover with <a href="https://github.com/dotnet/blazor">Blazor</a> or rather Jazor is filling a gap between static HTML/Razor pages and Blazor.</p>
+<p>When could you possibly use this library and not necessarily Blazor?</p>
+<ul>
+<li>You have got many Partial views in Razor pages and views which you would like to reuse e.g.</li>
+</ul>
+<pre><code class="language-c#">public IActionResult OnGetNews() =&gt;  Partial(&quot;_NewsPartial&quot;, 10);
+</code></pre>
+<ul>
+<li>You would like a hybrid of your current website and add simple SPA functionality</li>
+<li>Your project doesn't require minimising traffic in between the browser and server</li>
+</ul>
+<p>This library is using currently:</p>
+<ul>
+<li>TypeScript to handle all common actions workload</li>
+<li>ASP.NET Core 5.0 TagHelpers to simplify using <strong>data-</strong> and a bit help with strongly typed Controllers and Actions</li>
+<li>GitHub link <a href="https://github.com/VaclavElias/Jazor">https://github.com/VaclavElias/Jazor</a></li>
+</ul>
+<h2>Requirements</h2>
+<ol>
+<li>Add <code>jazor.js</code> to your Razor page or _Layout.</li>
+<li>Add <code>@addTagHelper *, Jazor</code> to your _ViewImports.cshtml</li>
+</ol>
+<h2>ToDo</h2>
+<ul>
+<li>Add more functionality</li>
+<li>Make prompts and spinners pluggable</li>
+</ul>
+<h2>Examples</h2>
+<p>I will be using <a href="https://getbootstrap.com/">Bootstrap</a> in my examples.</p>
+<h3>Example 1</h3>
+<p>Load multiple delayed HTML / Partial Views.</p>
+<ul>
+<li>Load News part</li>
+<li>Load Top News part after 1 second</li>
+<li>This will load your HTML from your desired url</li>
+</ul>
+<pre><code class="language-html">    &lt;div jazor-url=&quot;/examples/news&quot;&gt;Loading...&lt;/div&gt;
+    &lt;div jazor-url=&quot;@((nameof(ExamplesController), nameof(ExamplesController.TopNews), null))&quot; jazor-delay=&quot;1&quot;&gt;Loading...&lt;/div&gt;
+</code></pre>
+<h3>Example 2</h3>
+<p>Click a button or link to load HTML / Partial Views to your target element.</p>
+<pre><code class="language-html">    &lt;button jazor-click=&quot;/examples/itnews&quot; jazor-target=&quot;content&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Show .NET News&lt;/div&gt;
+    &lt;button jazor-click=&quot;@((nameof(ExamplesController), nameof(ExamplesController.AngularNews), null))&quot; jazor-target=&quot;content&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Show Angular News&lt;/button&gt;
+
+    &lt;div id=&quot;content&quot;&gt;The content will be loaded here.&lt;/div&gt;
+</code></pre>
+
+                    <hr />
+                    <p>
+                        
+                    </p>
+                    <p>
+                        Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions">GitHub Discussion</a>.
+                    </p>
+                </article>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                
+            </div>
+            <div class="col-md-6 text-md-end">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+        <input type="checkbox" id="navbar-toggle-cbox">
+        <a class="navbar-brand" href="/">Václav Eliáš</a>
+        <label for="navbar-toggle-cbox" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </label>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/blog/">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tags.html">Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/archive.html">Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/VasoElias">Twitter</a>
+                </li>
+                <!--<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>-->
+                <!--<li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+            </li>-->
+            </ul>
+            <!--<form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>-->
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="row postcontent">
+            <div class="col-12">
+                <article>
+                    <h1></h1>
+                    <div class="entry-meta entry-meta-layout" style="text-align:center;">
+                        <p style="text-align:center;font-size:14px;color:#616161;margin-top: 20px;padding-top: 6px;border-top: 2px solid #979593;display: inline-block;" class="x-hidden-focus">
+                            Sat Apr 03 2021 01:00:00 GMT+0100 (British Summer Time)
+                        </p>
+                    </div>
+                    <p>This Intro is a <strong>quick reference</strong> and it should help you to familiarise quickly with the key and essential <strong>Visual Studio</strong> (VS) functionality. The VS Integrated Development Environment (IDE) might look overwhelming in the beginning but there is no need to know everything. More you work with VS you will start discovering what you need and you will eventually understand the complexity of VS by passive learning.</p>
+<p>Initial notes:</p>
+<ul>
+<li>You should already be familiar with any coding/development IDE</li>
+<li>This is not a tutorial, this is a quick reference on what is the most important or helpful to know when you start working with Visual Studio. Do check any available material to familiarise and learn if you don't understand this guide</li>
+<li>If you don't know certain terms just google them</li>
+</ul>
+<h2>Content</h2>
+<ul>
+<li><a href="#1-solution-vs-project">1. Solution vs Project</a></li>
+<li><a href="#2-opening-solution--project">2. Opening Solution / Project</a></li>
+<li><a href="#3-solution-explorer">3. Solution Explorer</a></li>
+<li><a href="#4-windows-management">4. Windows Management</a></li>
+<li><a href="#5-f12-is-your-friend---go-to-definition">5. F12 is your friend - Go to Definition</a></li>
+<li><a href="#6-ctrlt-and-ctrlq---search-everywhere">6. CTRL+T and CTRL+Q - Search Everywhere</a></li>
+<li><a href="#7-dotnet-command">7. dotnet command</a></li>
+<li><a href="#8-project-story---viewing-csproj-in-summary">8. Project story - Viewing csproj in summary</a></li>
+<li><a href="#9-project-packages-nuget">9. Project Packages (nuget)</a></li>
+<li><a href="#10-visual-studio-extensions">10. Visual Studio Extensions</a></li>
+<li><a href="#11-visual-studio-settings">11. Visual Studio Settings</a></li>
+<li><a href="#qa">Q&amp;A</a></li>
+</ul>
+<h2>1. Solution vs Project</h2>
+<p>Solution contains 1 or more projects to logically organise your projects together.</p>
+<h2>2. Opening Solution / Project</h2>
+<p>You can open a project by clicking on a file with extension <strong>.sln</strong> (solution) or <strong>.csproj</strong> (C# project). If you open a project which is part of a solution, the solution might open instead automatically.</p>
+<h2>3. Solution Explorer</h2>
+<p>Once you open your Solution or Project you want to see your <strong>Solution Explorer</strong> which contains a logical hierarchy of all folders and files which are needed to build your project. You are going to use this window and navigate through it very frequently. Usually you would have your Solution Explorer on the right or on the left always visible.</p>
+<p>Note: If you cannot see it go to Menu → View → Click Solution Explorer (first in the menu)</p>
+<h2>4. Windows Management</h2>
+<p>You might use these options below frequently to arrange your windows. More info about <a href="https://docs.microsoft.com/en-us/visualstudio/ide/customizing-window-layouts-in-visual-studio?view=vs-2022">customising layouts</a>.</p>
+<ul>
+<li>
+<p>Vertical Document Group - If you need to see different files next to each other <img src="/assets/img/2021/Visual-Studio-Document-Group.webp" alt="Document Groups">{: .img-fluid}</p>
+</li>
+<li>
+<p>Horizontal Document Group - If you need to see different files horizontally</p>
+</li>
+<li>
+<p>Split Window - You can split horizontally the edition of a file through Window → Split. This is especially useful when visualizing or editing two locations in a large file <img src="/assets/img/2021/Visual-Studio-Horizontal-Split-Code-Editor.gif" alt="Split Window">{: .img-fluid} <img src="/assets/img/2021/Visual-Studio-Vertical-Split-Code-Editor.gif" alt="Split Window">{: .img-fluid}</p>
+</li>
+<li>
+<p>New Window - Open an instance of the same file in a separate window, Window → New Window</p>
+</li>
+</ul>
+<h2>5. F12 is your friend - Go to Definition</h2>
+<p>The <strong>Go To Definition</strong> feature navigates to the source of a type or member, and opens the result in a new tab.</p>
+<ul>
+<li>Pressing F12 while your text cursor is somewhere inside the symbol name</li>
+<li>Right click mouse on the symbol → Go to Definition</li>
+<li>Or ALT+F12 to peek the identifier definition without opening a new tab</li>
+</ul>
+<h2>6. CTRL+T and CTRL+Q - Search Everywhere</h2>
+<ul>
+<li>CTRL+Q - Search everywhere in the code, including menu items</li>
+<li>CTRL+T - Search everywhere in the code</li>
+</ul>
+<h2>7. dotnet command</h2>
+<ul>
+<li>It provides commands for working with .NET projects
+<ul>
+<li>e.g. <code>dotnet build</code> builds a project</li>
+<li>e.g. <code>dotnet --info</code> shows detailed information about a .NET installation</li>
+</ul>
+</li>
+<li>It runs .NET applications
+<ul>
+<li>e.g. <code>dotnet myApplication.exe</code> or <code>dotnet myApplication.dll</code></li>
+</ul>
+</li>
+</ul>
+<h2>8. Project story - Viewing csproj in summary</h2>
+<p>.NET projects are based on the MSBuild format. Project files, which have extensions like <strong>.csproj</strong> for C# project are in XML format. The csproj file includes settings related to targeted .NET Frameworks, project folders, NuGet package references etc.</p>
+<p>You can edit in 2 ways</p>
+<ul>
+<li>Solution Explorer → Select your project → Right Click → Select Edit Project File</li>
+<li>Solution Explorer → Double click on the project name</li>
+</ul>
+<h2>9. Project Packages (nuget)</h2>
+<p>An essential tool for any modern development platform is a mechanism through which developers can create, share, and consume useful code. Often such code is bundled into &quot;packages&quot; that contain compiled code (as DLLs) along with other content needed in the projects that consume these packages (source <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">An introduction to Nuget</a>).</p>
+<p>For .NET (including .NET Core), the Microsoft-supported mechanism for sharing code is <strong>NuGet</strong> (essentially a single ZIP file) with the <strong>.nupkg</strong> extension.</p>
+<ul>
+<li>Solution Explorer → Right click on Project→ Manage Nuget Packages
+<ul>
+<li>Browse - Search for new packages</li>
+<li>Installed - See your installed packages</li>
+<li>Updates - See current updates for your installed packages (mind minor vs major updates)</li>
+</ul>
+</li>
+</ul>
+<h2>10. Visual Studio Extensions</h2>
+<p>Extensions allow you to customize and enhance your experience in Visual Studio by adding new features or integrating existing tools (Amazon, Azure, ..). The main purpose is to increase <strong>your productivity</strong> and cater to your workflow.</p>
+<ul>
+<li>Top Menu → Extensions → Manage Extensions
+<ul>
+<li>Installed - All installed and pre-installed extensions</li>
+<li>Online - Search for new extensions</li>
+<li>Updates - Update extensions, some extensions update automatically</li>
+<li>Roaming Extensions Manager - If you are logged into Visual Studio with your Microsoft account you can sync your extensions to other devices with Visual Studio</li>
+</ul>
+</li>
+<li>Top free extensions for development
+<ul>
+<li>CodeMaid</li>
+<li>Productivity Power Tools 2019/2022 - Installs a few individual extensions for your productivity</li>
+<li>Live Share - Real-time collaborative development in Visual Studio and Visual Studio Code</li>
+<li>Web Essentials 2019/2022 -  Installs a few individual extensions for your web development</li>
+<li>AWS Toolkit - If you work/deploy to AWS</li>
+</ul>
+</li>
+</ul>
+<h2>11. Visual Studio Settings</h2>
+<ul>
+<li>Top Menu → Edit → Advance → Word Wrap
+<ul>
+<li>Very useful so you don't need to move your horizontal bar</li>
+</ul>
+</li>
+<li>Top Menu → Tools→ Options → Projects and Solutions → Track Active Item in Solution Explorer -
+<ul>
+<li>Solution Explorer item is selected automatically when you edit the file in the Editor</li>
+</ul>
+</li>
+<li>Top Menu → Tools→ Options → Productivity Power Tools (Extension) → Power Commands → Remove and Sort Using on save</li>
+</ul>
+<h2>Q&amp;A</h2>
+<h3>Q: How to create a new project within the solution?</h3>
+<p>A1: Solution Explorer → Right click on Solution → Add → New project or Existing Project</p>
+<p>A2: Top Menu → File → Add → New project or Existing Project</p>
+<h3>Q: How to change the .NET version?</h3>
+<p>A1: Double click on the project file to open the project as XML and edit the <code>&lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;</code> tag.</p>
+<p>A2: Solution Explorer → Right Click on the Project → Click Properties → Click Application → Change Target Framework</p>
+
+                    <hr />
+                    <p>
+                        
+                    </p>
+                    <p>
+                        Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions">GitHub Discussion</a>.
+                    </p>
+                </article>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                
+            </div>
+            <div class="col-md-6 text-md-end">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
