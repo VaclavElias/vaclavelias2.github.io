@@ -1,7 +1,10 @@
 const sass = require("sass");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const path = require("node:path");
 
 module.exports = function (eleventyConfig) {
+
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     eleventyConfig.addPassthroughCopy("assets/img");
 
@@ -29,6 +32,10 @@ module.exports = function (eleventyConfig) {
                 return result.css;
             };
         }
+    });
+
+    eleventyConfig.addFilter('jsonify', function (variable) {
+        return JSON.stringify(variable);
     });
 
     return {

@@ -33,25 +33,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://twitter.com/VasoElias">Twitter</a>
                 </li>
-                <!--<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>-->
-                <!--<li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-            </li>-->
             </ul>
             <!--<form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>-->
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
         </div>
     </div>
 </nav>
@@ -72,8 +58,7 @@
 <ul>
 <li>You have got many Partial views in Razor pages and views which you would like to reuse e.g.</li>
 </ul>
-<pre><code class="language-c#">public IActionResult OnGetNews() =&gt;  Partial(&quot;_NewsPartial&quot;, 10);
-</code></pre>
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token return-type class-name">IActionResult</span> <span class="token function">OnGetNews</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>  <span class="token function">Partial</span><span class="token punctuation">(</span><span class="token string">"_NewsPartial"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>You would like a hybrid of your current website and add simple SPA functionality</li>
 <li>Your project doesn't require minimising traffic in between the browser and server</li>
@@ -103,16 +88,10 @@
 <li>Load Top News part after 1 second</li>
 <li>This will load your HTML from your desired url</li>
 </ul>
-<pre><code class="language-html">    &lt;div jazor-url=&quot;/examples/news&quot;&gt;Loading...&lt;/div&gt;
-    &lt;div jazor-url=&quot;@((nameof(ExamplesController), nameof(ExamplesController.TopNews), null))&quot; jazor-delay=&quot;1&quot;&gt;Loading...&lt;/div&gt;
-</code></pre>
+<pre class="language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">jazor-url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/examples/news<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Loading...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">jazor-url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@((nameof(ExamplesController), nameof(ExamplesController.TopNews), null))<span class="token punctuation">"</span></span> <span class="token attr-name">jazor-delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Loading...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <h3>Example 2</h3>
 <p>Click a button or link to load HTML / Partial Views to your target element.</p>
-<pre><code class="language-html">    &lt;button jazor-click=&quot;/examples/itnews&quot; jazor-target=&quot;content&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Show .NET News&lt;/div&gt;
-    &lt;button jazor-click=&quot;@((nameof(ExamplesController), nameof(ExamplesController.AngularNews), null))&quot; jazor-target=&quot;content&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Show Angular News&lt;/button&gt;
-
-    &lt;div id=&quot;content&quot;&gt;The content will be loaded here.&lt;/div&gt;
-</code></pre>
+<pre class="language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">jazor-click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/examples/itnews<span class="token punctuation">"</span></span> <span class="token attr-name">jazor-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Show .NET News<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">jazor-click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@((nameof(ExamplesController), nameof(ExamplesController.AngularNews), null))<span class="token punctuation">"</span></span> <span class="token attr-name">jazor-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Show Angular News<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The content will be loaded here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 
                     <hr />
                     <p>

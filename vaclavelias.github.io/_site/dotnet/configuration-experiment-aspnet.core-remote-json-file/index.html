@@ -33,25 +33,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://twitter.com/VasoElias">Twitter</a>
                 </li>
-                <!--<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>-->
-                <!--<li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-            </li>-->
             </ul>
             <!--<form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>-->
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
         </div>
     </div>
 </nav>
@@ -67,11 +53,7 @@
                     </div>
                     <p>This is an experiment project to access <strong>appsettings.json</strong> from Azure Blob or any remote url. I will use public access to this Azure file considering no user secrets are included in this file. You would need to add additional options to secure your link if any user secrets are transmitted.</p>
 <p>Example url: https://your-storage.blob.core.windows.net/your-blob/appsettings.json</p>
-<pre><code class="language-csharp">services.AddRemoteJsonFile(Configuration, &quot;AppSettings:Url:RemoteUrl&quot;, options =&gt;
-{
-    Configuration = options;
-});
-</code></pre>
+<pre class="language-csharp"><code class="language-csharp">services<span class="token punctuation">.</span><span class="token function">AddRemoteJsonFile</span><span class="token punctuation">(</span>Configuration<span class="token punctuation">,</span> <span class="token string">"AppSettings:Url:RemoteUrl"</span><span class="token punctuation">,</span> options <span class="token operator">=></span><br><span class="token punctuation">{</span><br>    Configuration <span class="token operator">=</span> options<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Source here <a href="https://github.com/codecapital/CodeCapital.AspNetCore/tree/net5.0/src/CodeCapital.AspNetCore.Extensions.Configuration.Json">CodeCapital.AspNetCore.Extensions.Configuration.Json</a>.</p>
 
                     <hr />

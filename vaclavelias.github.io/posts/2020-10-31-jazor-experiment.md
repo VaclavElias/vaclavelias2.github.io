@@ -18,7 +18,7 @@ There is a crossover with [Blazor](https://github.com/dotnet/blazor) or rather J
 
 When could you possibly use this library and not necessarily Blazor?
 - You have got many Partial views in Razor pages and views which you would like to reuse e.g. 
-```c#
+```csharp
 public IActionResult OnGetNews() =>  Partial("_NewsPartial", 10);
 ```
 - You would like a hybrid of your current website and add simple SPA functionality
