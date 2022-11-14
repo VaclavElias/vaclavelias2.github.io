@@ -3,8 +3,14 @@ layout: post
 title:  Stride minimal API / Code only approach
 description: Stride3D with minimal code approach
 categories: stride3d
-tags: C# Stride3D .NET Game
+date: 2022-05-13
+tags:
+  - C# 
+  - Stride3D 
+  - .NET 
+  - Game
 image: https://www.stride3d.net/images/svg/logo.svg
+excerpt: 12 lines of code, this is what it takes to run Stride 3D example below (plus some usings on the top).
 ---
 12 lines of code, this is what it takes to run Stride 3D example below (plus some ```usings``` on the top).
 

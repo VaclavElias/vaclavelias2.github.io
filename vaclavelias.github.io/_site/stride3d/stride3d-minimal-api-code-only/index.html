@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Stride minimal API / Code only approach</title>
     
+    <meta name="description" content="Stride3D with minimal code approach">
     <link rel="stylesheet" href="/assets/css/styles.css">
     
 </head>
@@ -59,23 +60,42 @@
         <div class="row postcontent">
             <div class="col-12">
                 <article>
-                    <h1></h1>
+                    <h1>Stride minimal API / Code only approach</h1>
                     <div class="entry-meta entry-meta-layout" style="text-align:center;">
                         <p style="text-align:center;font-size:14px;color:#616161;margin-top: 20px;padding-top: 6px;border-top: 2px solid #979593;display: inline-block;" class="x-hidden-focus">
-                            Sat Jun 01 2019 01:00:00 GMT+0100 (British Summer Time)
+                            May 13, 2022
                         </p>
                     </div>
-                    <p>This is an experiment project to access <strong>appsettings.json</strong> from Azure Blob or any remote url. I will use public access to this Azure file considering no user secrets are included in this file. You would need to add additional options to secure your link if any user secrets are transmitted.</p>
-<p>Example url: https://your-storage.blob.core.windows.net/your-blob/appsettings.json</p>
-<pre><code class="language-csharp">services.AddRemoteJsonFile(Configuration, &quot;AppSettings:Url:RemoteUrl&quot;, options =&gt;
+                    <p>12 lines of code, this is what it takes to run Stride 3D example below (plus some <code>usings</code> on the top).</p>
+<p>This works only with <a href="https://www.stride3d.net/">Stride</a> <strong>4.1+</strong>.</p>
+<p>Follow the steps in this <a href="https://github.com/VaclavElias/stride-code-only">stride-code-only</a> repository.</p>
+<p>Related <a href="https://twitter.com/VasoElias/status/1525162302487543809">tweet</a>.</p>
+<pre><code class="language-csharp">using var game = new Game();
+
+game.Run(start: (Scene rootScene) =&gt;
 {
-    Configuration = options;
+    game.SetupBase3DScene();
+
+    var entity = new Entity(new Vector3(1f, 0.5f, 3f));
+
+    entity.Add(new ModelComponent(new CubeProceduralModel().Generate(game.Services)));
+
+    entity.Scene = rootScene;
 });
 </code></pre>
-<p>Source here <a href="https://github.com/codecapital/CodeCapital.AspNetCore/tree/net5.0/src/CodeCapital.AspNetCore.Extensions.Configuration.Json">CodeCapital.AspNetCore.Extensions.Configuration.Json</a>.</p>
 
                     <hr />
                     <p>
+                        
+                        <span class="badge rounded-pill text-bg-success">post</span>
+                        
+                        <span class="badge rounded-pill text-bg-success">C#</span>
+                        
+                        <span class="badge rounded-pill text-bg-success">Stride3D</span>
+                        
+                        <span class="badge rounded-pill text-bg-success">.NET</span>
+                        
+                        <span class="badge rounded-pill text-bg-success">Game</span>
                         
                     </p>
                     <p>

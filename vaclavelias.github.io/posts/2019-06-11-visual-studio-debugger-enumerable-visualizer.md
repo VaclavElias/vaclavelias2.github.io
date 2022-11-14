@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Visual Studio Debugger Enumerable Visualizer"
+title: "Visual Studio Debugger Enumerable Visualizer"
 categories: dotnet
-tags: C# Visual-Studio
+date: 2019-06-11
+tags:
+ - C# 
+ - Visual-Studio
 image: /assets/img/visual-studio.png
 ---
 Visual Studio Debugger Enumerable Visualizer without any [Serialize] attribute, using Json was an experiment to get a better experience when debugging IEnumerables.
