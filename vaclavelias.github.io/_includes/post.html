@@ -18,16 +18,12 @@
                     <h1>{{ title }}</h1>
                     <div class="entry-meta entry-meta-layout" style="text-align:center;">
                         <p style="text-align:center;font-size:14px;color:#616161;margin-top: 20px;padding-top: 6px;border-top: 2px solid #979593;display: inline-block;" class="x-hidden-focus">
-                            {% include day.html date: date %}
+                            {% include _day.html date: date %}
                         </p>
                     </div>
                     {{ content }}
                     <hr />
-                    <p>
-                        {% for tag in tags %}
-                        <span class="badge rounded-pill text-bg-success">{{ tag | replace: "-"," " }}</span>
-                        {% endfor %}
-                    </p>
+                    <p>{% include _tags.html tags: tags %}</p>
                     <p>
                         Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions">GitHub Discussion</a>.
                     </p>

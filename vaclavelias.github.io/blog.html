@@ -13,15 +13,11 @@ title: Blog
                 </div>
                 <div class="col-lg-8 col-md-12 post-card-header">
                     <h4 class="entry-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h4>
-                    <p>{% include day.html date: post.date %}</p>
+                    <p>{% include _day.html date: post.date %}</p>
                     <p>
                         {{ post.data.excerpt }}
                     </p>
-                    <p>
-                        {% for tag in post.data.tags %} {% if tag != "post" %}
-                        <span class="badge rounded-pill text-bg-success">{{ tag | replace: "-"," "}}</span>{% endif %}
-                        {% endfor %}
-                    </p>
+                    <p>{% include _tags.html tags: post.data.tags %}</p>
                 </div>
             </div>
         </article>
