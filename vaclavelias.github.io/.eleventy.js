@@ -8,6 +8,13 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("assets/img");
 
+    //eleventyConfig.addCollection("posts", (collection) => {
+    //    return collection.getFilteredByTag("blog");
+    //});
+
+    //eleventyConfig.addWatchTarget("./assets/css");
+    //eleventyConfig.addWatchTarget("./assets/css");
+
     eleventyConfig.setLiquidOptions({
         dynamicPartials: false,
         strictFilters: false
@@ -17,7 +24,9 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addExtension("scss", {
         outputFileExtension: "css",
-
+        compileOptions: {
+            cache: false
+        },
         compile: async function (inputContent, inputPath) {
             let parsed = path.parse(inputPath);
 

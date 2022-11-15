@@ -31,6 +31,15 @@
             </div>
         </div>
         <div class="row mb-5">
+            <nav aria-labelledby="my-pagination">
+                <h2 id="my-pagination">This is my Pagination {{ collections.blog.size }}</h2>
+                {% assign previousPost = collections.blog | getPreviousCollectionItem: page %}
+                {% assign nextPost = collections.blog | getNextCollectionItem: page %}
+                <p>Previous {{ previousPost.title }}</p>
+                <p>Next {{ nextPost.title }}</p>
+                {% if previousPost %}Previous Blog Post: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}
+                {% if nextPost %}Next Blog Post: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}
+            </nav>
             <div class="col-md-6 mb-4">
                 {% if page.previous.url %}
                 <div class="post-card">

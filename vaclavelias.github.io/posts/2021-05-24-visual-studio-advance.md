@@ -1,9 +1,11 @@
 ---
-layout: post
 title:  "Visual Studio Advance"
 description: "11 Must Things to Know for Visual Studio Beginners"
 categories: dotnet
-tags: C# Visual-Studio Advance
+tags:
+  - C# 
+  - Visual-Studio 
+  - Advance
 image: /assets/img/visual-studio.png
 ---
 

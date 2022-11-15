@@ -4,9 +4,9 @@ excerpt: "Jazor is a JavaScript helper library for ASP.NET Core websites which t
 categories: dotnet
 date: 2020-10-31
 tags:
- - TypeScript 
- - ASP.NET-Core 
- - Advance
+  - TypeScript 
+  - ASP.NET-Core 
+  - Advance
 image: /assets/img/dotnet-bot_scene_juggling-small.png
 ---
 

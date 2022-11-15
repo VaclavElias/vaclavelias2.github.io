@@ -3,5 +3,5 @@
   "permalink": "/{{ categories }}/{{ page.fileSlug }}/",
   "permalink3": "/posts/{{ page.date | date: '%Y/%m/%d' }}/{{ page.fileSlug }}/",
   "permalink2": "/posts/{{ page.fileSlug }}/",
-  "tags": [ "post" ]
+  "tags": [ "blog" ]
 }
