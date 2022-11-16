@@ -18,7 +18,7 @@ pagination:
                     <h4 class="entry-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h4>
                     <p>{% include _day.html date: post.date %}</p>
                     <p>
-                        {{ post.data.excerpt | html }}
+                        {{ post.data.page.excerpt | md }}
                     </p>
                     <p>{% include _tags.html tags: post.data.tags %}</p>
                 </div>

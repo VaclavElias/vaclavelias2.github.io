@@ -9,10 +9,9 @@ tags:
   - .NET 
   - Game
 image: https://www.stride3d.net/images/svg/logo.svg
-excerpt: <strong>12</strong> lines of code, this is what it takes to run Stride 3D example below (plus some <code>usings</code> on the top).
 ---
-12 lines of code, this is what it takes to run Stride 3D example below (plus some `usings` on the top).
-
+**12 lines** of code, this is what it takes to run Stride 3D example below (plus some `usings` on the top).
+<!-- excerpt -->
 This works only with [Stride](https://www.stride3d.net/) **4.1+**.
 
 Follow the steps in this [stride-code-only](https://github.com/VaclavElias/stride-code-only) repository.

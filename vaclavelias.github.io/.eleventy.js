@@ -1,6 +1,7 @@
 const sass = require("sass");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const path = require("node:path");
+const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
 
@@ -45,6 +46,16 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter('jsonify', function (variable) {
         return JSON.stringify(variable);
+    });
+
+    eleventyConfig.setFrontMatterParsingOptions({
+        excerpt: true,
+        // Optional, default is "---"
+        excerpt_separator: "<!-- excerpt -->"
+    });
+
+    eleventyConfig.addFilter("md", function (content = "") {
+        return markdownIt({ html: true }).render(content);
     });
 
     return {
