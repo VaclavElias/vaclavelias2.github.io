@@ -2,6 +2,7 @@ const sass = require("sass");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const path = require("node:path");
 const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = function (eleventyConfig) {
 
@@ -57,6 +58,17 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("md", function (content = "") {
         return markdownIt({ html: true }).render(content);
     });
+
+    let markdownLibrary = markdownIt({
+        html: true,
+        breaks: true,
+        linkify: true
+    }).use(markdownItAnchor, {
+        permalink: true,
+        permalinkClass: "direct-link",
+        permalinkSymbol: "🔗"
+    });
+    eleventyConfig.setLibrary("md", markdownLibrary);
 
     return {
         //dir: {

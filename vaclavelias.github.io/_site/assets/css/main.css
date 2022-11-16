@@ -51,6 +51,16 @@ a:hover :not(.navbar a) {
   display: inline-block;*/
   border-top: 1px solid #979593;
 }
+.postcontent .direct-link {
+  text-decoration: none;
+  /*font-size: 19px;*/
+  font-size: 1.5rem;
+  transform: rotate(45deg);
+  display: none;
+}
+.postcontent h1:hover .direct-link, .postcontent h2:hover .direct-link, .postcontent h3:hover .direct-link {
+  display: inline-block;
+}
 
 .search-main {
   background: #fff;

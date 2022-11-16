@@ -20,9 +20,9 @@ Initial notes:
 
 ## Content
 
-- [1. Solution vs Project](#1-solution-vs-project)
-- [2. Solution Explorer](#2-solution-explorer)
-- [3. Sharing your Code](#3-live-sharing-your-code---collaborative-coding)
+- [1. Solution vs Project](#1.-solution-vs-project)
+- [2. Solution Explorer](#2.-solution-explorer)
+- [3. Sharing your Code](#3.-live-sharing-your-code---collaborative-coding)
 - [4. Default Configuration - AppSettings.cs / appsettings.json](#4-default-configuration---appsettingscs--appsettingsjson)
 - [5. Manage User Secrets](#5-manage-user-secrets)
 - [6. editorconfig](#6-editorconfig)
@@ -42,7 +42,7 @@ See some basic folder structure examples:
 ### Example 1 - Projects in one repository - Mono-repo
 
 This example is showing independent projects with no project dependencies, which are grouped together in the **api-bureau.sln** solution. The intention might be to extract a common library which will be used by all projects. All projects are in the same repository to simplify a workflow for the small team who needs to work across all projects. 
-```
+```text
 /api-bureau
 /api-bureau/api-bureau.sln
 /api-bureau/.gitignore
@@ -63,7 +63,7 @@ This example is showing projects, which are grouped together in the *ApiBureau.A
 
 Note: Visual Studio 2022+ supports managing multiple repositories from one solution.
 
-```
+```text
 /api-bureau
 /api-bureau/all-apis/.gitignore
 /api-bureau/all-apis/ApiBureau.AllApis.sln

@@ -59,62 +59,30 @@
 <li>This is not a tutorial, this is a quick reference on what is the most important or helpful to know when you start working with Visual Studio. Do check any available material to familiarise and learn if you don't understand this guide</li>
 <li>If you don't know certain terms just google them</li>
 </ul>
-<h2>Content</h2>
+<h2 id="content" tabindex="-1">Content <a class="direct-link" href="#content">🔗</a></h2>
 <ul>
-<li><a href="#1-solution-vs-project">1. Solution vs Project</a></li>
-<li><a href="#2-solution-explorer">2. Solution Explorer</a></li>
-<li><a href="#3-live-sharing-your-code---collaborative-coding">3. Sharing your Code</a></li>
+<li><a href="#1.-solution-vs-project">1. Solution vs Project</a></li>
+<li><a href="#2.-solution-explorer">2. Solution Explorer</a></li>
+<li><a href="#3.-live-sharing-your-code---collaborative-coding">3. Sharing your Code</a></li>
 <li><a href="#4-default-configuration---appsettingscs--appsettingsjson">4. Default Configuration - AppSettings.cs / appsettings.json</a></li>
 <li><a href="#5-manage-user-secrets">5. Manage User Secrets</a></li>
 <li><a href="#6-editorconfig">6. editorconfig</a></li>
 <li><a href="#qa">Q&amp;A</a></li>
 </ul>
-<h2>1. Solution vs Project</h2>
+<h2 id="1.-solution-vs-project" tabindex="-1">1. Solution vs Project <a class="direct-link" href="#1.-solution-vs-project">🔗</a></h2>
 <p>Depends on your circumstances and your team workflow, you might find different (sometimes confusing) folder structure patterns.</p>
 <p>VS projects can be in different physical locations on your drive and your VS solution is referencing them wherever the projects are. You can also have multiple solutions *<strong>.sln</strong> if you need to reference/view projects in different ways. Many projects will be grouped together in their parent folder.</p>
 <p>Your solution projects might be independent from each other or some of them might have dependencies. The circular dependencies are not allowed and it is an anti-pattern.</p>
 <p>There are many ways to organise your solution. If you work in a team or alone, consistency is important.</p>
 <p>See some basic folder structure examples:</p>
-<h3>Example 1 - Projects in one repository - Mono-repo</h3>
+<h3 id="example-1---projects-in-one-repository---mono-repo" tabindex="-1">Example 1 - Projects in one repository - Mono-repo <a class="direct-link" href="#example-1---projects-in-one-repository---mono-repo">🔗</a></h3>
 <p>This example is showing independent projects with no project dependencies, which are grouped together in the <strong>api-bureau.sln</strong> solution. The intention might be to extract a common library which will be used by all projects. All projects are in the same repository to simplify a workflow for the small team who needs to work across all projects.</p>
-<pre><code>/api-bureau
-/api-bureau/api-bureau.sln
-/api-bureau/.gitignore
-
-/api-bureau/src/ApiBureau.CloudCall.Api
-/api-bureau/src/ApiBureau.Confluence.Api
-/api-bureau/src/ApiBureau.SharePoint.Api
-
-/api-bureau/test/ApiBureau.CloudCall.Api.UnitTests
-/api-bureau/test/ApiBureau.Confluence.Api.UnitTests
-/api-bureau/test/ApiBureau.SharePoint.Api.UnitTests
-
-</code></pre>
-<h3>Example 2 - Projects in multiple repositories</h3>
+<pre class="language-text"><code class="language-text">/api-bureau<br>/api-bureau/api-bureau.sln<br>/api-bureau/.gitignore<br><br>/api-bureau/src/ApiBureau.CloudCall.Api<br>/api-bureau/src/ApiBureau.Confluence.Api<br>/api-bureau/src/ApiBureau.SharePoint.Api<br><br>/api-bureau/test/ApiBureau.CloudCall.Api.UnitTests<br>/api-bureau/test/ApiBureau.Confluence.Api.UnitTests<br>/api-bureau/test/ApiBureau.SharePoint.Api.UnitTests<br></code></pre>
+<h3 id="example-2---projects-in-multiple-repositories" tabindex="-1">Example 2 - Projects in multiple repositories <a class="direct-link" href="#example-2---projects-in-multiple-repositories">🔗</a></h3>
 <p>This example is showing projects, which are grouped together in the <em>ApiBureau.AllApis.sln</em> solution. The only dependency is that <em>all-apis</em> project is dependent on all other APIs. The teams working mostly independently prefer to have their repos separated.</p>
 <p>Note: Visual Studio 2022+ supports managing multiple repositories from one solution.</p>
-<pre><code>/api-bureau
-/api-bureau/all-apis/.gitignore
-/api-bureau/all-apis/ApiBureau.AllApis.sln
-/api-bureau/all-api/src/ApiBureau.AllApis.Console
-
-/api-bureau/cloudcall-api/.gitignore
-/api-bureau/cloudcall-api/ApiBureau.CloudCall.sln
-/api-bureau/cloudcall-api/src/ApiBureau.CloudCall.Api
-/api-bureau/cloudcall-api/test/ApiBureau.CloudCall.Api.UnitTests
-
-/api-bureau/confluence-api/.gitignore
-/api-bureau/confluence-api/ApiBureau.Confluence.sln
-/api-bureau/confluence-api/src/ApiBureau.Confluence.Api
-/api-bureau/confluence-api/test/ApiBureau.Confluence.Api.UnitTests
-
-/api-bureau/sharepoint-api/.gitignore
-/api-bureau/sharepoint-api/ApiBureau.SharePoint.sln
-/api-bureau/sharepoint-api/src/ApiBureau.SharePoint.Api
-/api-bureau/sharepoint-api/test/ApiBureau.SharePoint.Api.UnitTests
-
-</code></pre>
-<h2>2. Solution Explorer</h2>
+<pre class="language-text"><code class="language-text">/api-bureau<br>/api-bureau/all-apis/.gitignore<br>/api-bureau/all-apis/ApiBureau.AllApis.sln<br>/api-bureau/all-api/src/ApiBureau.AllApis.Console<br><br>/api-bureau/cloudcall-api/.gitignore<br>/api-bureau/cloudcall-api/ApiBureau.CloudCall.sln<br>/api-bureau/cloudcall-api/src/ApiBureau.CloudCall.Api<br>/api-bureau/cloudcall-api/test/ApiBureau.CloudCall.Api.UnitTests<br><br>/api-bureau/confluence-api/.gitignore<br>/api-bureau/confluence-api/ApiBureau.Confluence.sln<br>/api-bureau/confluence-api/src/ApiBureau.Confluence.Api<br>/api-bureau/confluence-api/test/ApiBureau.Confluence.Api.UnitTests<br><br>/api-bureau/sharepoint-api/.gitignore<br>/api-bureau/sharepoint-api/ApiBureau.SharePoint.sln<br>/api-bureau/sharepoint-api/src/ApiBureau.SharePoint.Api<br>/api-bureau/sharepoint-api/test/ApiBureau.SharePoint.Api.UnitTests<br></code></pre>
+<h2 id="2.-solution-explorer" tabindex="-1">2. Solution Explorer <a class="direct-link" href="#2.-solution-explorer">🔗</a></h2>
 <p>By default your Solution Explorer is showing only the most relevant files. And some files e.g., *<strong>.cs</strong> will automatically appear in your Solution Explorer when you copy a file to your project folder or create a new C# file.</p>
 <p>Some files e.g., <em>.gitignore</em> are hidden in the Solution Explorer so they don't distract you. It is good to familiarise yourself with the project folders and files. You can toggle these files by:</p>
 <ul>
@@ -130,13 +98,13 @@
 </ul>
 <p>To reverse, click the vertical bar, then Solution Explorer and then pin icon again.</p>
 <p>More <a href="https://docs.microsoft.com/en-us/visualstudio/ide/use-solution-explorer?view=vs-2022">Solution Explorer resources</a>.</p>
-<h2>3. Live Sharing your Code - Collaborative Coding</h2>
+<h2 id="3.-live-sharing-your-code---collaborative-coding" tabindex="-1">3. Live Sharing your Code - Collaborative Coding <a class="direct-link" href="#3.-live-sharing-your-code---collaborative-coding">🔗</a></h2>
 <p>You are becoming familiar with VS and one day you need a help with your code. Your colleague or friend doesn't have the project you are working on, maybe they don't have VS but they have Visual Studio Code. Now you can share your VS session with anyone. Your colleagues will see exactly what you see, or they can navigate independently without downloading your project.</p>
 <p>Live Share lets you collaboratively explore, edit and debug with others in real time, regardless of what programming languages you're using or app types you're building.</p>
 <p>Read more about <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/quickstart/share">Live Sharing</a>.</p>
-<h2>4. Default Configuration - AppSettings.cs / appsettings.json</h2>
-<p>Application configuration is a huge subject. If you are working with ASP.NET Core, get familiar with <strong>appsettings.json</strong> and also with <strong>AppSettings.cs</strong>. <code>IOptions&lt;AppSettings&gt;</code> will let you use your configuration through strongly typed settings and dependency injection.</p>
-<p>.NET has lots of helpers and methods which will simplify access to your configuration and you can use them also outside of ASP.NET Core applications, e.g., Console Application.</p>
+<h2 id="4.-default-configuration---appsettings.cs-%2F-appsettings.json" tabindex="-1">4. Default Configuration - AppSettings.cs / appsettings.json <a class="direct-link" href="#4.-default-configuration---appsettings.cs-%2F-appsettings.json">🔗</a></h2>
+<p>Application configuration is a huge subject. If you are working with <a href="http://ASP.NET">ASP.NET</a> Core, get familiar with <strong>appsettings.json</strong> and also with <strong>AppSettings.cs</strong>. <code>IOptions&lt;AppSettings&gt;</code> will let you use your configuration through strongly typed settings and dependency injection.</p>
+<p>.NET has lots of helpers and methods which will simplify access to your configuration and you can use them also outside of <a href="http://ASP.NET">ASP.NET</a> Core applications, e.g., Console Application.</p>
 <p>Very important is the sequence of configuration providers:</p>
 <ol>
 <li>appsettings.json</li>
@@ -146,7 +114,7 @@
 <li>Command-line arguments</li>
 </ol>
 <p>Lots of reading on this subject here <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0">Application Configuration</a>.</p>
-<h2>5. Manage User Secrets</h2>
+<h2 id="5.-manage-user-secrets" tabindex="-1">5. Manage User Secrets <a class="direct-link" href="#5.-manage-user-secrets">🔗</a></h2>
 <p>Any passwords, secrets, any information you don't want to share has to be secured and not committed to your source control system like <strong>Git</strong>. How do you do it in VS? Very easily.</p>
 <ul>
 <li>Solution Explorer → Select your project → Right Click → Select Manage User Secrets
@@ -160,12 +128,12 @@
 <pre><code>%APPDATA%\Microsoft\UserSecrets\&lt;user_secrets_id&gt;\secrets.json
 </code></pre>
 <p>Read more about <a href="https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&amp;tabs=linux">Secrets in development</a> subject.</p>
-<h2>6. editorconfig</h2>
+<h2 id="6.-editorconfig" tabindex="-1">6. editorconfig <a class="direct-link" href="#6.-editorconfig">🔗</a></h2>
 <p>If you work alone or in a team, code consistency is very important in each project.</p>
 <p>You can add an EditorConfig file to your project or codebase to enforce consistent coding styles for everyone that works in the codebase. Do ask your colleagues and propose this process if it is not in place. Consistency helps with readability across all projects.</p>
 <p>More about this subject here <a href="https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2022">Settings with EditorConfig</a>.</p>
-<h2>Q&amp;A</h2>
-<h3>Q: How to change the .NET version?</h3>
+<h2 id="q%26a" tabindex="-1">Q&amp;A <a class="direct-link" href="#q%26a">🔗</a></h2>
+<h3 id="q%3A-how-to-change-the-.net-version%3F" tabindex="-1">Q: How to change the .NET version? <a class="direct-link" href="#q%3A-how-to-change-the-.net-version%3F">🔗</a></h3>
 <p>A1: Double click on the project file to open the project as XML and edit the <code>&lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;</code> tag. You can also target multiple frameworks by replacing this tag with <code>&lt;TargetFrameworks&gt;net5.0;net6.0&lt;/TargetFrameworks&gt;</code> tag.</p>
 
                     <hr />

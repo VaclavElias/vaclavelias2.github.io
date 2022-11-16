@@ -19,6 +19,12 @@ pre[class*=language-] {
   hyphens: none;
 }
 
+code[class*=language-text],
+pre[class*=language-text] {
+  color: #212529;
+  font-weight: normal;
+}
+
 pre[class*=language-]::-moz-selection, pre[class*=language-] ::-moz-selection,
 code[class*=language-]::-moz-selection, code[class*=language-] ::-moz-selection {
   text-shadow: none;
