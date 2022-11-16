@@ -47,13 +47,13 @@
             <div class="col-12">
                 <article>
                     <h1>Stride minimal API / Code only approach</h1>
-                    <div class="entry-meta entry-meta-layout" style="text-align:center;">
-                        <p style="text-align:center;font-size:14px;color:#616161;margin-top: 20px;padding-top: 6px;border-top: 2px solid #979593;display: inline-block;" class="x-hidden-focus">
+                    <div class="entry-meta entry-meta-layoutt text-center">
+                        <p class="x-hidden-focus mt-4 pt-1 small text-muted date d-inline-block">
                             May 13, 2022
                         </p>
                     </div>
-                    <p><strong>12 lines</strong> of code, this is what it takes to run Stride 3D example below (plus some <code>usings</code> on the top).
-This works only with <a href="https://www.stride3d.net/">Stride</a> <strong>4.1+</strong>.</p>
+                    <p><strong>12 lines</strong> of code, this is what it takes to run Stride 3D example below (plus some <code>usings</code> on the top).</p>
+<p>This works only with <a href="https://www.stride3d.net/">Stride</a> <strong>4.1+</strong>.</p>
 <p>Follow the steps in this <a href="https://github.com/VaclavElias/stride-code-only">stride-code-only</a> repository.</p>
 <p>Related <a href="https://twitter.com/VasoElias/status/1525162302487543809">tweet</a>.</p>
 <pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token class-name"><span class="token keyword">var</span></span> game <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Game</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>game<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token named-parameter punctuation">start</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token class-name">Scene</span> rootScene<span class="token punctuation">)</span> <span class="token operator">=></span><br><span class="token punctuation">{</span><br>    game<span class="token punctuation">.</span><span class="token function">SetupBase3DScene</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token class-name"><span class="token keyword">var</span></span> entity <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Entity</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">Vector3</span><span class="token punctuation">(</span><span class="token number">1f</span><span class="token punctuation">,</span> <span class="token number">0.5f</span><span class="token punctuation">,</span> <span class="token number">3f</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    entity<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">ModelComponent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">CubeProceduralModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Generate</span><span class="token punctuation">(</span>game<span class="token punctuation">.</span>Services<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    entity<span class="token punctuation">.</span>Scene <span class="token operator">=</span> rootScene<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -67,16 +67,14 @@ This works only with <a href="https://www.stride3d.net/">Stride</a> <strong>4.1+
             </div>
         </div>
         <div class="row mb-5">
-            <nav aria-labelledby="my-pagination">
-                <h2 id="my-pagination">This is my Pagination 6</h2>
-                
-                
-                <p>Previous </p>
-                <p>Next </p>
-                Previous Blog Post: <a href="/dotnet/visual-studio-advance/">Visual Studio Advance</a>
-                
-            </nav>
+            
+            
             <div class="col-md-6 mb-4">
+                
+                <div class="post-card">
+                    <h5>Previous Post</h5>
+                    <a class="prev" href="/dotnet/visual-studio-advance/">Visual Studio Advance</a>
+                </div>
                 
             </div>
             <div class="col-md-6 text-md-end">

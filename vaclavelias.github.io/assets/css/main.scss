@@ -22,7 +22,7 @@ a {
     text-decoration: none;
 }
 
-a:hover :not(.navbar a)  {
+a:hover :not(.navbar a) {
     text-decoration: underline;
 }
 
@@ -42,6 +42,16 @@ a:hover :not(.navbar a)  {
 
     a {
         text-decoration: underline;
+    }
+
+    .date {
+        /*text-align: center;
+        font-size: 14px;
+        color: #616161;
+        margin-top: 20px;
+        padding-top: 6px;
+        display: inline-block;*/
+        border-top: 1px solid #979593;
     }
 }
 

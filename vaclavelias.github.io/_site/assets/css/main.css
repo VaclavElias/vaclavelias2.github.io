@@ -42,6 +42,15 @@ a:hover :not(.navbar a) {
 .postcontent a {
   text-decoration: underline;
 }
+.postcontent .date {
+  /*text-align: center;
+  font-size: 14px;
+  color: #616161;
+  margin-top: 20px;
+  padding-top: 6px;
+  display: inline-block;*/
+  border-top: 1px solid #979593;
+}
 
 .search-main {
   background: #fff;

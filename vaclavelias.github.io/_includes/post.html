@@ -16,8 +16,8 @@
             <div class="col-12">
                 <article>
                     <h1>{{ title }}</h1>
-                    <div class="entry-meta entry-meta-layout" style="text-align:center;">
-                        <p style="text-align:center;font-size:14px;color:#616161;margin-top: 20px;padding-top: 6px;border-top: 2px solid #979593;display: inline-block;" class="x-hidden-focus">
+                    <div class="entry-meta entry-meta-layoutt text-center">
+                        <p class="x-hidden-focus mt-4 pt-1 small text-muted date d-inline-block">
                             {% include _day.html date: date %}
                         </p>
                     </div>
@@ -31,28 +31,21 @@
             </div>
         </div>
         <div class="row mb-5">
-            <nav aria-labelledby="my-pagination">
-                <h2 id="my-pagination">This is my Pagination {{ collections.blog.size }}</h2>
-                {% assign previousPost = collections.blog | getPreviousCollectionItem: page %}
-                {% assign nextPost = collections.blog | getNextCollectionItem: page %}
-                <p>Previous {{ previousPost.title }}</p>
-                <p>Next {{ nextPost.title }}</p>
-                {% if previousPost %}Previous Blog Post: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}
-                {% if nextPost %}Next Blog Post: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}
-            </nav>
+            {% assign previousPost = collections.blog | getPreviousCollectionItem: page %}
+            {% assign nextPost = collections.blog | getNextCollectionItem: page %}
             <div class="col-md-6 mb-4">
-                {% if page.previous.url %}
+                {% if previousPost %}
                 <div class="post-card">
                     <h5>Previous Post</h5>
-                    <a class="prev" href="{{page.previous.url}}">{{page.previous.title}}</a>
+                    <a class="prev" href="{{previousPost.url}}">{{previousPost.data.title}}</a>
                 </div>
                 {% endif %}
             </div>
             <div class="col-md-6 text-md-end">
-                {% if page.next.url %}
+                {% if nextPost %}
                 <div class="post-card">
                     <h5>Next Post</h5>
-                    <a class="next" href="{{page.next.url}}">{{page.next.title}}</a>
+                    <a class="next" href="{{nextPost.url}}">{{nextPost.data.title}}</a>
                 </div>
                 {% endif %}
             </div>
