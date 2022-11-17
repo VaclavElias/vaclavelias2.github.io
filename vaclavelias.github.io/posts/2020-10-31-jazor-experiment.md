@@ -51,8 +51,8 @@ Load multiple delayed HTML / Partial Views.
  - This will load your HTML from your desired url
  
 ```html
-    <div jazor-url="/examples/news">Loading...</div>
-    <div jazor-url="@((nameof(ExamplesController), nameof(ExamplesController.TopNews), null))" jazor-delay="1">Loading...</div>
+<div jazor-url="/examples/news">Loading...</div>
+<div jazor-url="@((nameof(ExamplesController), nameof(ExamplesController.TopNews), null))" jazor-delay="1">Loading...</div>
 ```
 
 ### Example 2
@@ -61,9 +61,9 @@ Click a button or link to load HTML / Partial Views to your target element.
 
 
 ```html
-    <button jazor-click="/examples/itnews" jazor-target="content" type="button" class="btn btn-primary">Show .NET News</div>
-    <button jazor-click="@((nameof(ExamplesController), nameof(ExamplesController.AngularNews), null))" jazor-target="content" type="button" class="btn btn-primary">Show Angular News</button>
+<button jazor-click="/examples/itnews" jazor-target="content" type="button" class="btn btn-primary">Show .NET News</div>
+<button jazor-click="@((nameof(ExamplesController), nameof(ExamplesController.AngularNews), null))" jazor-target="content" type="button" class="btn btn-primary">Show Angular News</button>
 
-    <div id="content">The content will be loaded here.</div>
+<div id="content">The content will be loaded here.</div>
 ```
 

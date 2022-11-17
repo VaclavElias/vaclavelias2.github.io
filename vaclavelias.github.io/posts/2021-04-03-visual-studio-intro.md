@@ -2,6 +2,7 @@
 title:  "Visual Studio Intro"
 description: "11 Must Things to Know for Visual Studio Beginners"
 categories: dotnet
+date: 2021-04-03
 tags:
   - C# 
   - Visual-Studio 
