@@ -1,5 +1,6 @@
 ---
 title:  "Configuration experiment in ASP.NET Core – RemoteJsonFile"
+description: "Access remote json configuration from your ASP.NET Core application"
 categories: dotnet
 date: 2019-06-01
 tags:
@@ -7,7 +8,10 @@ tags:
   - ASP.NET-Core
 image: /assets/img/dotnet-bot_scene_juggling-small.png
 ---
-This is an experiment project to access **appsettings.json** from Azure Blob or any remote url. I will use public access to this Azure file considering no user secrets are included in this file. You would need to add additional options to secure your link if any user secrets are transmitted.
+This is an experiment project to access **appsettings.json** from Azure Blob or any remote url.
+<!-- excerpt -->
+
+I will use public access to this Azure file considering no user secrets are included in this file. You would need to add additional options to secure your link if any user secrets are transmitted.
 
 Example url: https://your-storage.blob.core.windows.net/your-blob/appsettings.json
 

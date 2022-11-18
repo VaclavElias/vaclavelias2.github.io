@@ -1,6 +1,6 @@
 ---
 title:  "Visual Studio Intro"
-description: "11 Must Things to Know for Visual Studio Beginners"
+description: "11 Must Things to Know for Visual Studio Beginners, Part 1"
 categories: dotnet
 date: 2021-04-03
 tags:
@@ -10,7 +10,10 @@ tags:
 image: /assets/img/visual-studio.png
 ---
 
-This Intro is a **quick reference** and it should help you to familiarise quickly with the key and essential **Visual Studio** (VS) functionality. The VS Integrated Development Environment (IDE) might look overwhelming in the beginning but there is no need to know everything. More you work with VS you will start discovering what you need and you will eventually understand the complexity of VS by passive learning.
+This intro is a **quick reference** and it should help you to familiarise quickly with the key and essential **Visual Studio** (VS) functionality.
+<!-- excerpt -->
+
+The VS Integrated Development Environment (IDE) might look overwhelming in the beginning but there is no need to know everything. More you work with VS you will start discovering what you need and you will eventually understand the complexity of VS by passive learning.
 
 Initial notes: 
 

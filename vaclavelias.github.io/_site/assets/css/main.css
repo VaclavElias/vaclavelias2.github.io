@@ -84,6 +84,7 @@ a:hover :not(.navbar a) {
   border-radius: 4px;
   padding: 20px 40px;
   word-break: break-word;
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
