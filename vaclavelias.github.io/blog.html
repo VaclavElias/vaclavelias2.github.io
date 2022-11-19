@@ -3,7 +3,7 @@ layout: default
 title: Blog
 pagination:
   data: collections.blog
-  size: 2
+  size: 6
   reverse: true
 ---
 <h1 class="my-3">Blog</h1>
@@ -28,7 +28,6 @@ pagination:
         {% endfor %}
         <nav class="justify-content-center d-flex">
             {% assign paginator_divider =  pagination.pages.size | minus:pagination.pageNumber %}
-            <h1>a {{ pagination.pages.size }} - {{ pagination.pageNumber }} - {{ paginator_divider }}</h1>
             <ul class="pagination stride-custom-pagination">
                 {% if pagination.href.previous %}
                 <li class="page-item">
@@ -51,35 +50,35 @@ pagination:
                 {% endif %}
                 {% if pagination.pageNumber > 2 %}
                 <li class="page-item">
-                    <a class="page-link" href="/blog/{{ pagination.pageNumber | minus:2 }}/">{{ pagination.pageNumber | minus:2 }}</a>
+                    <a class="page-link" href="/blog/{{ pagination.pageNumber | minus:2 }}/">{{ pagination.pageNumber | minus:1 }}</a>
                 </li>
                 {% endif %}
                 {% if pagination.pageNumber > 1 %}
                 <li class="page-item">
-                    <a class="page-link" href="{{ paginator.previous_page_path }}">{{ paginator.previous_page }}</a>
+                    <a class="page-link" href="{{ pagination.href.previous }}">{{ pagination.pageNumber }}</a>
                 </li>
                 {% endif %}
                 <li class="page-item disabled">
                     <span class="page-link">{{ pagination.pageNumber | plus:1 }}</span>
                 </li>
-                {% if paginator_divider > 0 %}
-                <li class="page-item">
-                    <a class="page-link" href="{{ pagination.href.next }}">x{{ paginator.next_page }}</a>
-                </li>
-                {% endif %}
                 {% if paginator_divider > 1 %}
                 <li class="page-item">
-                    <a class="page-link" href="/blog/{{ pagination.pageNumber | plus:2 }}/">{{ pagination.pageNumber | plus:2 }}</a>
-                </li>
-                {% endif %}
-                {% if paginator_divider > 3 %}
-                <li class="page-item">
-                    <span class="page-link">...</span>
+                    <a class="page-link" href="{{ pagination.href.next }}">{{ pagination.pageNumber | plus:2 }}</a>
                 </li>
                 {% endif %}
                 {% if paginator_divider > 2 %}
                 <li class="page-item">
-                    <a class="page-link" href="/blog/{{ pagination.pages.size }}/">{{ pagination.pages.size }}</a>
+                    <a class="page-link" href="/blog/{{ pagination.pageNumber | plus:2 }}/">{{ pagination.pageNumber | plus:3 }}</a>
+                </li>
+                {% endif %}
+                {% if paginator_divider > 4 %}
+                <li class="page-item">
+                    <span class="page-link">...</span>
+                </li>
+                {% endif %}
+                {% if paginator_divider > 3 %}
+                <li class="page-item">
+                    <a class="page-link" href="/blog/{{ pagination.pages.size | minus:1 }}/">{{ pagination.pages.size }}</a>
                 </li>
                 {% endif %}
                 {% if pagination.href.next %}
@@ -92,7 +91,6 @@ pagination:
                 </li>
                 {% endif %}
             </ul>
-            <h1>{{ pagination.pageNumber}} - {{ pagination.pages.size }} - {{ pagination.pageNumber != pagination.pages.size }}</h1>
         </nav>
     </div>
     <div class="col-lg-3 col-md-4 col-sm-12">
