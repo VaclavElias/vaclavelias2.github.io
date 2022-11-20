@@ -1,55 +1,41 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    {% if description %}
-    <meta name="description" content="{{ description }}">{% endif %}
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    {% # include google-analytics.html %}
-</head>
-<body>
-    {% include _navigation.html %}
-    <div class="container">
-        <div class="row postcontent">
-            <div class="col-12">
-                <article>
-                    <h1>{{ title }}</h1>
-                    <div class="entry-meta entry-meta-layoutt text-center">
-                        <p class="x-hidden-focus mt-4 pt-1 small text-muted date d-inline-block">
-                            {% include _day.html date: date %}
-                        </p>
-                    </div>
-                    {{ content }}
-                    <hr />
-                    <p>{% include _tags.html tags: tags %}</p>
-                    <p>
-                        Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions">GitHub Discussion</a>.
-                    </p>
-                </article>
+---
+layout: default
+---
+<div class="row postcontent">
+    <div class="col-12">
+        <article>
+            <h1>{{ title }}</h1>
+            <div class="entry-meta entry-meta-layoutt text-center">
+                <p class="x-hidden-focus mt-4 pt-1 small text-muted date d-inline-block">
+                    {% include _day.html date: date %}
+                </p>
             </div>
-        </div>
-        <div class="row mb-5">
-            {% assign previousPost = collections.blog | getPreviousCollectionItem: page %}
-            {% assign nextPost = collections.blog | getNextCollectionItem: page %}
-            <div class="col-md-6 mb-4">
-                {% if previousPost %}
-                <div class="post-card">
-                    <h5>Previous Post</h5>
-                    <a class="prev stretched-link" href="{{previousPost.url}}">{{previousPost.data.title}}</a>
-                </div>
-                {% endif %}
-            </div>
-            <div class="col-md-6 text-md-end">
-                {% if nextPost %}
-                <div class="post-card">
-                    <h5>Next Post</h5>
-                    <a class="next stretched-link" href="{{nextPost.url}}">{{nextPost.data.title}}</a>
-                </div>
-                {% endif %}
-            </div>
-        </div>
+            {{ content }}
+            <hr />
+            <p>{% include _tags.html tags: tags %}</p>
+            <p>
+                Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions">GitHub Discussion</a>.
+            </p>
+        </article>
     </div>
-</body>
-</html>
+</div>
+<div class="row mb-5">
+    {% assign previousPost = collections.blog | getPreviousCollectionItem: page %}
+    {% assign nextPost = collections.blog | getNextCollectionItem: page %}
+    <div class="col-md-6 mb-4">
+        {% if previousPost %}
+        <div class="post-card">
+            <h5>Previous Post</h5>
+            <a class="prev stretched-link" href="{{previousPost.url}}">{{previousPost.data.title}}</a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-md-6 text-md-end">
+        {% if nextPost %}
+        <div class="post-card">
+            <h5>Next Post</h5>
+            <a class="next stretched-link" href="{{nextPost.url}}">{{nextPost.data.title}}</a>
+        </div>
+        {% endif %}
+    </div>
+</div>

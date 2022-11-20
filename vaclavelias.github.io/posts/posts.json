@@ -1,5 +1,8 @@
 {
   "layout": "post",
+  "eleventyComputed": {
+    "year": "{{ page.date | date: '%Y' }}"
+  },
   "permalink": "/{{ categories }}/{{ page.fileSlug }}/",
   "permalink3": "/posts/{{ page.date | date: '%Y/%m/%d' }}/{{ page.fileSlug }}/",
   "permalink2": "/posts/{{ page.fileSlug }}/",
