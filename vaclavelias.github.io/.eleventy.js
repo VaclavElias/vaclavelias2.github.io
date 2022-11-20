@@ -56,6 +56,16 @@ module.exports = function (eleventyConfig) {
         excerpt_separator: "<!-- excerpt -->"
     });
 
+    eleventyConfig.addCollection('tagList', (collections) => {
+        const uniqueTags = collections
+            .getFilteredByTag('blog')
+            .reduce((tags, item) => tags.concat(item.data.tags), [])
+            .filter((tag) => !!tag)
+            .filter((tag) => !!tag && !['page', 'blog'].includes(tag))
+            .sort();
+        return Array.from(new Set(uniqueTags));
+    });
+
     eleventyConfig.addFilter("md", function (content = "") {
         return markdownIt({ html: true }).render(content);
     });
