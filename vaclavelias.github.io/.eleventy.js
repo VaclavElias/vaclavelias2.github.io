@@ -28,7 +28,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addExtension("scss", {
         outputFileExtension: "css",
         compileOptions: {
-            cache: false
+            cache: false,
+            style: "compressed",
         },
         compile: async function (inputContent, inputPath) {
             let parsed = path.parse(inputPath);
@@ -37,7 +38,7 @@ module.exports = function (eleventyConfig) {
                 loadPaths: [
                     parsed.dir || ".",
                     this.config.dir.includes
-                ]
+                ], style: "compressed"
             });
 
             return async (data) => {
@@ -66,6 +67,14 @@ module.exports = function (eleventyConfig) {
         return Array.from(new Set(uniqueTags));
     });
 
+    eleventyConfig.addCollection('yearList', (collections) => {
+        const uniqueyears = collections
+            .getFilteredByTag('blog')
+            .map((post) => post.date.getFullYear())
+            .reverse();
+        return Array.from(new Set(uniqueyears));
+    });
+
     eleventyConfig.addFilter("md", function (content = "") {
         return markdownIt({ html: true }).render(content);
     });
@@ -81,10 +90,4 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.setLibrary("md", markdownLibrary);
 
-    return {
-        //dir: {
-        //    layouts: "_layouts",
-        //    includes: "_includes"
-        //}
-    }
 };
