@@ -23,18 +23,18 @@ Initial notes:
 
 ## Content
 
-- [1. Solution vs Project](#1-solution-vs-project)
-- [2. Opening Solution / Project](#2-opening-solution--project)
-- [3. Solution Explorer](#3-solution-explorer)
-- [4. Windows Management](#4-windows-management)
-- [5. F12 is your friend - Go to Definition](#5-f12-is-your-friend---go-to-definition)
-- [6. CTRL+T and CTRL+Q - Search Everywhere](#6-ctrlt-and-ctrlq---search-everywhere)
-- [7. dotnet command](#7-dotnet-command)
-- [8. Project story - Viewing csproj in summary](#8-project-story---viewing-csproj-in-summary)
-- [9. Project Packages (nuget)](#9-project-packages-nuget)
-- [10. Visual Studio Extensions](#10-visual-studio-extensions)
-- [11. Visual Studio Settings](#11-visual-studio-settings)
-- [Q&A](#qa)
+- [1. Solution vs Project](#1.-solution-vs-project)
+- [2. Opening Solution / Project](#2.-opening-solution-%2F-project)
+- [3. Solution Explorer](#3.-solution-explorer)
+- [4. Windows Management](#4.-windows-management)
+- [5. F12 is your friend - Go to Definition](#5.-f12-is-your-friend---go-to-definition)
+- [6. CTRL+T and CTRL+Q - Search Everywhere](#6.-ctrl%2Bt-and-ctrl%2Bq---search-everywhere)
+- [7. dotnet command](#7.-dotnet-command)
+- [8. Project story - Viewing csproj in summary](#8.-project-story---viewing-csproj-in-summary)
+- [9. Project Packages (nuget)](#9.-project-packages-(nuget))
+- [10. Visual Studio Extensions](#10.-visual-studio-extensions)
+- [11. Visual Studio Settings](#11.-visual-studio-settings)
+- [Q&A](#q%26a)
 
 ## 1. Solution vs Project
 Solution contains 1 or more projects to logically organise your projects together.

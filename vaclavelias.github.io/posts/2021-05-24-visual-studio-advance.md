@@ -26,10 +26,10 @@ Initial notes:
 - [1. Solution vs Project](#1.-solution-vs-project)
 - [2. Solution Explorer](#2.-solution-explorer)
 - [3. Sharing your Code](#3.-live-sharing-your-code---collaborative-coding)
-- [4. Default Configuration - AppSettings.cs / appsettings.json](#4-default-configuration---appsettingscs--appsettingsjson)
-- [5. Manage User Secrets](#5-manage-user-secrets)
-- [6. editorconfig](#6-editorconfig)
-- [Q&A](#qa)
+- [4. Default Configuration - AppSettings.cs / appsettings.json](#4.-default-configuration---appsettings.cs-%2F-appsettings.json)
+- [5. Manage User Secrets](#5.-manage-user-secrets)
+- [6. editorconfig](#6.-editorconfig)
+- [Q&A](#q%26a)
 
 ## 1. Solution vs Project
 Depends on your circumstances and your team workflow, you might find different (sometimes confusing) folder structure patterns. 

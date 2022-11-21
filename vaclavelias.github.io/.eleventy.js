@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("assets/img");
     eleventyConfig.addPassthroughCopy("favicon.ico");
+    eleventyConfig.exc
 
     //eleventyConfig.addCollection("posts", (collection) => {
     //    return collection.getFilteredByTag("blog");
