@@ -30,7 +30,6 @@ module.exports = function (eleventyConfig) {
         outputFileExtension: "css",
         compileOptions: {
             cache: false,
-            style: "compressed",
         },
         compile: async function (inputContent, inputPath) {
             let parsed = path.parse(inputPath);
