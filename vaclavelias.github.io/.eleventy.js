@@ -3,6 +3,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const path = require("node:path");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
 
@@ -91,4 +92,5 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.setLibrary("md", markdownLibrary);
 
+    eleventyConfig.addPlugin(pluginRss);
 };
