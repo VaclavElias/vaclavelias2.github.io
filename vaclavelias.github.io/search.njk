@@ -1,0 +1,15 @@
+---json
+{
+  "permalink": "search.json",
+  "eleventyExcludeFromCollections": true
+}
+---
+[
+  {%- for post in collections.blog | reverse %}
+  {
+    "title":"{{ post.data.title }}",
+    "url":"{{ post.url | url }}",
+    "content":"{{ post.templateContent | safe  }}"
+  }
+  {%- if loop.last == false %},{%- endif %} {%- endfor %}
+]
