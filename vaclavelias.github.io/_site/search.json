@@ -1,325 +1,111 @@
 [
-  {
-    "title":"Stride minimal API / Code only approach",
-    "url":"/stride3d/stride3d-minimal-api-code-only/",
-    "content":"<p><strong>12 lines</strong> of code, this is what it takes to run Stride 3D example below (plus some <code>usings</code> on the top).</p>
-<p>This works only with <a href="https://www.stride3d.net/">Stride</a> <strong>4.1+</strong>.</p>
-<p>Follow the steps in this <a href="https://github.com/VaclavElias/stride-code-only">stride-code-only</a> repository.</p>
-<p>Related <a href="https://twitter.com/VasoElias/status/1525162302487543809">tweet</a>.</p>
-<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token class-name"><span class="token keyword">var</span></span> game <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Game</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>game<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token named-parameter punctuation">start</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token class-name">Scene</span> rootScene<span class="token punctuation">)</span> <span class="token operator">=></span><br><span class="token punctuation">{</span><br>    game<span class="token punctuation">.</span><span class="token function">SetupBase3DScene</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token class-name"><span class="token keyword">var</span></span> entity <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Entity</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">Vector3</span><span class="token punctuation">(</span><span class="token number">1f</span><span class="token punctuation">,</span> <span class="token number">0.5f</span><span class="token punctuation">,</span> <span class="token number">3f</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    entity<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">ModelComponent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">CubeProceduralModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Generate</span><span class="token punctuation">(</span>game<span class="token punctuation">.</span>Services<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    entity<span class="token punctuation">.</span>Scene <span class="token operator">=</span> rootScene<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-"
-  },
-  {
-    "title":"Visual Studio Advance",
-    "url":"/dotnet/visual-studio-advance/",
-    "content":"<p>This post is a <strong>quick reference</strong> and should help you to familiarise quickly with the key and essential <strong>Visual Studio</strong> (VS) functionality.</p>
-<p>The VS Integrated Development Environment (IDE) might look overwhelming in the beginning but there is no need to know everything. More you work with VS you will start discovering what you need and you will eventually understand the complexity of VS by passive learning.</p>
-<p>Initial notes:</p>
-<ul>
-<li>You should already be familiar with any coding/development IDE</li>
-<li>This is not a tutorial, this is a quick reference on what is the most important or helpful to know when you start working with Visual Studio. Do check any available material to familiarise and learn if you don't understand this guide</li>
-<li>If you don't know certain terms just google them</li>
-</ul>
-<h2 id="content" tabindex="-1">Content <a class="direct-link" href="#content">🔗</a></h2>
-<ul>
-<li><a href="#1.-solution-vs-project">1. Solution vs Project</a></li>
-<li><a href="#2.-solution-explorer">2. Solution Explorer</a></li>
-<li><a href="#3.-live-sharing-your-code---collaborative-coding">3. Sharing your Code</a></li>
-<li><a href="#4.-default-configuration---appsettings.cs-%2F-appsettings.json">4. Default Configuration - AppSettings.cs / appsettings.json</a></li>
-<li><a href="#5.-manage-user-secrets">5. Manage User Secrets</a></li>
-<li><a href="#6.-editorconfig">6. editorconfig</a></li>
-<li><a href="#q%26a">Q&amp;A</a></li>
-</ul>
-<h2 id="1.-solution-vs-project" tabindex="-1">1. Solution vs Project <a class="direct-link" href="#1.-solution-vs-project">🔗</a></h2>
-<p>Depends on your circumstances and your team workflow, you might find different (sometimes confusing) folder structure patterns.</p>
-<p>VS projects can be in different physical locations on your drive and your VS solution is referencing them wherever the projects are. You can also have multiple solutions *<strong>.sln</strong> if you need to reference/view projects in different ways. Many projects will be grouped together in their parent folder.</p>
-<p>Your solution projects might be independent from each other or some of them might have dependencies. The circular dependencies are not allowed and it is an anti-pattern.</p>
-<p>There are many ways to organise your solution. If you work in a team or alone, consistency is important.</p>
-<p>See some basic folder structure examples:</p>
-<h3 id="example-1---projects-in-one-repository---mono-repo" tabindex="-1">Example 1 - Projects in one repository - Mono-repo <a class="direct-link" href="#example-1---projects-in-one-repository---mono-repo">🔗</a></h3>
-<p>This example is showing independent projects with no project dependencies, which are grouped together in the <strong>api-bureau.sln</strong> solution. The intention might be to extract a common library which will be used by all projects. All projects are in the same repository to simplify a workflow for the small team who needs to work across all projects.</p>
-<pre class="language-text"><code class="language-text">/api-bureau<br>/api-bureau/api-bureau.sln<br>/api-bureau/.gitignore<br><br>/api-bureau/src/ApiBureau.CloudCall.Api<br>/api-bureau/src/ApiBureau.Confluence.Api<br>/api-bureau/src/ApiBureau.SharePoint.Api<br><br>/api-bureau/test/ApiBureau.CloudCall.Api.UnitTests<br>/api-bureau/test/ApiBureau.Confluence.Api.UnitTests<br>/api-bureau/test/ApiBureau.SharePoint.Api.UnitTests<br></code></pre>
-<h3 id="example-2---projects-in-multiple-repositories" tabindex="-1">Example 2 - Projects in multiple repositories <a class="direct-link" href="#example-2---projects-in-multiple-repositories">🔗</a></h3>
-<p>This example is showing projects, which are grouped together in the <em>ApiBureau.AllApis.sln</em> solution. The only dependency is that <em>all-apis</em> project is dependent on all other APIs. The teams working mostly independently prefer to have their repos separated.</p>
-<p>Note: Visual Studio 2022+ supports managing multiple repositories from one solution.</p>
-<pre class="language-text"><code class="language-text">/api-bureau<br>/api-bureau/all-apis/.gitignore<br>/api-bureau/all-apis/ApiBureau.AllApis.sln<br>/api-bureau/all-api/src/ApiBureau.AllApis.Console<br><br>/api-bureau/cloudcall-api/.gitignore<br>/api-bureau/cloudcall-api/ApiBureau.CloudCall.sln<br>/api-bureau/cloudcall-api/src/ApiBureau.CloudCall.Api<br>/api-bureau/cloudcall-api/test/ApiBureau.CloudCall.Api.UnitTests<br><br>/api-bureau/confluence-api/.gitignore<br>/api-bureau/confluence-api/ApiBureau.Confluence.sln<br>/api-bureau/confluence-api/src/ApiBureau.Confluence.Api<br>/api-bureau/confluence-api/test/ApiBureau.Confluence.Api.UnitTests<br><br>/api-bureau/sharepoint-api/.gitignore<br>/api-bureau/sharepoint-api/ApiBureau.SharePoint.sln<br>/api-bureau/sharepoint-api/src/ApiBureau.SharePoint.Api<br>/api-bureau/sharepoint-api/test/ApiBureau.SharePoint.Api.UnitTests<br></code></pre>
-<h2 id="2.-solution-explorer" tabindex="-1">2. Solution Explorer <a class="direct-link" href="#2.-solution-explorer">🔗</a></h2>
-<p>By default your Solution Explorer is showing only the most relevant files. And some files e.g., *<strong>.cs</strong> will automatically appear in your Solution Explorer when you copy a file to your project folder or create a new C# file.</p>
-<p>Some files e.g., <em>.gitignore</em> are hidden in the Solution Explorer so they don't distract you. It is good to familiarise yourself with the project folders and files. You can toggle these files by:</p>
-<ul>
-<li>Solution Explorer Toolbar → Click Show All Files</li>
-</ul>
-<p>Or you can see all files on your drive through File Explorer:</p>
-<ul>
-<li>Solution Explorer → Right click on Solution -&gt; Open Folder in File Explorer</li>
-</ul>
-<p>If you don't use Solution Explorer, you can collapse this window to a vertical bar on the side of your screen. This is helpful when you share a screen, to get more visibility of your code.</p>
-<ul>
-<li>Solution Explorer → Click the Auto Hide <strong>pin icon</strong></li>
-</ul>
-<p>To reverse, click the vertical bar, then Solution Explorer and then pin icon again.</p>
-<p>More <a href="https://docs.microsoft.com/en-us/visualstudio/ide/use-solution-explorer?view=vs-2022">Solution Explorer resources</a>.</p>
-<h2 id="3.-live-sharing-your-code---collaborative-coding" tabindex="-1">3. Live Sharing your Code - Collaborative Coding <a class="direct-link" href="#3.-live-sharing-your-code---collaborative-coding">🔗</a></h2>
-<p>You are becoming familiar with VS and one day you need a help with your code. Your colleague or friend doesn't have the project you are working on, maybe they don't have VS but they have Visual Studio Code. Now you can share your VS session with anyone. Your colleagues will see exactly what you see, or they can navigate independently without downloading your project.</p>
-<p>Live Share lets you collaboratively explore, edit and debug with others in real time, regardless of what programming languages you're using or app types you're building.</p>
-<p>Read more about <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/quickstart/share">Live Sharing</a>.</p>
-<h2 id="4.-default-configuration---appsettings.cs-%2F-appsettings.json" tabindex="-1">4. Default Configuration - AppSettings.cs / appsettings.json <a class="direct-link" href="#4.-default-configuration---appsettings.cs-%2F-appsettings.json">🔗</a></h2>
-<p>Application configuration is a huge subject. If you are working with <a href="http://ASP.NET">ASP.NET</a> Core, get familiar with <strong>appsettings.json</strong> and also with <strong>AppSettings.cs</strong>. <code>IOptions&lt;AppSettings&gt;</code> will let you use your configuration through strongly typed settings and dependency injection.</p>
-<p>.NET has lots of helpers and methods which will simplify access to your configuration and you can use them also outside of <a href="http://ASP.NET">ASP.NET</a> Core applications, e.g., Console Application.</p>
-<p>Very important is the sequence of configuration providers:</p>
-<ol>
-<li>appsettings.json</li>
-<li>appsettings.{Environment}.json</li>
-<li>User secrets</li>
-<li>Environment variables</li>
-<li>Command-line arguments</li>
-</ol>
-<p>Lots of reading on this subject here <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0">Application Configuration</a>.</p>
-<h2 id="5.-manage-user-secrets" tabindex="-1">5. Manage User Secrets <a class="direct-link" href="#5.-manage-user-secrets">🔗</a></h2>
-<p>Any passwords, secrets, any information you don't want to share has to be secured and not committed to your source control system like <strong>Git</strong>. How do you do it in VS? Very easily.</p>
-<ul>
-<li>Solution Explorer → Select your project → Right Click → Select Manage User Secrets
-<ul>
-<li>VS might ask to install this NuGet <code>Microsoft.Extensions.Configuration.UserSecrets</code> or it will open file <code>secrets.json</code>.</li>
-</ul>
-</li>
-<li>You can use also .NET CLI to manage this file</li>
-</ul>
-<p>File <code>secrets.json</code> is kept outside of your VS projects and solution and it is never pushed to your git repository. Note, that this file <strong>is not encrypted</strong>. It is a plain text file, still hanging on your computer in this location:</p>
-<pre><code>%APPDATA%\Microsoft\UserSecrets\&lt;user_secrets_id&gt;\secrets.json
-</code></pre>
-<p>Read more about <a href="https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&amp;tabs=linux">Secrets in development</a> subject.</p>
-<h2 id="6.-editorconfig" tabindex="-1">6. editorconfig <a class="direct-link" href="#6.-editorconfig">🔗</a></h2>
-<p>If you work alone or in a team, code consistency is very important in each project.</p>
-<p>You can add an EditorConfig file to your project or codebase to enforce consistent coding styles for everyone that works in the codebase. Do ask your colleagues and propose this process if it is not in place. Consistency helps with readability across all projects.</p>
-<p>More about this subject here <a href="https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2022">Settings with EditorConfig</a>.</p>
-<h2 id="q%26a" tabindex="-1">Q&amp;A <a class="direct-link" href="#q%26a">🔗</a></h2>
-<h3 id="q%3A-how-to-change-the-.net-version%3F" tabindex="-1">Q: How to change the .NET version? <a class="direct-link" href="#q%3A-how-to-change-the-.net-version%3F">🔗</a></h3>
-<p>A1: Double click on the project file to open the project as XML and edit the <code>&lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;</code> tag. You can also target multiple frameworks by replacing this tag with <code>&lt;TargetFrameworks&gt;net5.0;net6.0&lt;/TargetFrameworks&gt;</code> tag.</p>
-"
-  },
-  {
-    "title":"Visual Studio Intro",
-    "url":"/dotnet/visual-studio-intro/",
-    "content":"<p>This intro is a <strong>quick reference</strong> and it should help you to familiarise quickly with the key and essential <strong>Visual Studio</strong> (VS) functionality.</p>
-<p>The VS Integrated Development Environment (IDE) might look overwhelming in the beginning but there is no need to know everything. More you work with VS you will start discovering what you need and you will eventually understand the complexity of VS by passive learning.</p>
-<p>Initial notes:</p>
-<ul>
-<li>You should already be familiar with any coding/development IDE</li>
-<li>This is not a tutorial, this is a quick reference on what is the most important or helpful to know when you start working with Visual Studio. Do check any available material to familiarise and learn if you don't understand this guide</li>
-<li>If you don't know certain terms just google them</li>
-</ul>
-<h2 id="content" tabindex="-1">Content <a class="direct-link" href="#content">🔗</a></h2>
-<ul>
-<li><a href="#1.-solution-vs-project">1. Solution vs Project</a></li>
-<li><a href="#2.-opening-solution-%2F-project">2. Opening Solution / Project</a></li>
-<li><a href="#3.-solution-explorer">3. Solution Explorer</a></li>
-<li><a href="#4.-windows-management">4. Windows Management</a></li>
-<li><a href="#5.-f12-is-your-friend---go-to-definition">5. F12 is your friend - Go to Definition</a></li>
-<li><a href="#6.-ctrl%2Bt-and-ctrl%2Bq---search-everywhere">6. CTRL+T and CTRL+Q - Search Everywhere</a></li>
-<li><a href="#7.-dotnet-command">7. dotnet command</a></li>
-<li><a href="#8.-project-story---viewing-csproj-in-summary">8. Project story - Viewing csproj in summary</a></li>
-<li><a href="#9.-project-packages-(nuget)">9. Project Packages (nuget)</a></li>
-<li><a href="#10.-visual-studio-extensions">10. Visual Studio Extensions</a></li>
-<li><a href="#11.-visual-studio-settings">11. Visual Studio Settings</a></li>
-<li><a href="#q%26a">Q&amp;A</a></li>
-</ul>
-<h2 id="1.-solution-vs-project" tabindex="-1">1. Solution vs Project <a class="direct-link" href="#1.-solution-vs-project">🔗</a></h2>
-<p>Solution contains 1 or more projects to logically organise your projects together.</p>
-<h2 id="2.-opening-solution-%2F-project" tabindex="-1">2. Opening Solution / Project <a class="direct-link" href="#2.-opening-solution-%2F-project">🔗</a></h2>
-<p>You can open a project by clicking on a file with extension <strong>.sln</strong> (solution) or <strong>.csproj</strong> (C# project). If you open a project which is part of a solution, the solution might open instead automatically.</p>
-<h2 id="3.-solution-explorer" tabindex="-1">3. Solution Explorer <a class="direct-link" href="#3.-solution-explorer">🔗</a></h2>
-<p>Once you open your Solution or Project you want to see your <strong>Solution Explorer</strong> which contains a logical hierarchy of all folders and files which are needed to build your project. You are going to use this window and navigate through it very frequently. Usually you would have your Solution Explorer on the right or on the left always visible.</p>
-<p>Note: If you cannot see it go to Menu → View → Click Solution Explorer (first in the menu)</p>
-<h2 id="4.-windows-management" tabindex="-1">4. Windows Management <a class="direct-link" href="#4.-windows-management">🔗</a></h2>
-<p>You might use these options below frequently to arrange your windows. More info about <a href="https://docs.microsoft.com/en-us/visualstudio/ide/customizing-window-layouts-in-visual-studio?view=vs-2022">customising layouts</a>.</p>
-<ul>
-<li>
-<p>Vertical Document Group - If you need to see different files next to each other <img src="/assets/img/2021/Visual-Studio-Document-Group.webp" alt="Document Groups">{: .img-fluid}</p>
-</li>
-<li>
-<p>Horizontal Document Group - If you need to see different files horizontally</p>
-</li>
-<li>
-<p>Split Window - You can split horizontally the edition of a file through Window → Split. This is especially useful when visualizing or editing two locations in a large file <img src="/assets/img/2021/Visual-Studio-Horizontal-Split-Code-Editor.gif" alt="Split Window">{: .img-fluid} <img src="/assets/img/2021/Visual-Studio-Vertical-Split-Code-Editor.gif" alt="Split Window">{: .img-fluid}</p>
-</li>
-<li>
-<p>New Window - Open an instance of the same file in a separate window, Window → New Window</p>
-</li>
-</ul>
-<h2 id="5.-f12-is-your-friend---go-to-definition" tabindex="-1">5. F12 is your friend - Go to Definition <a class="direct-link" href="#5.-f12-is-your-friend---go-to-definition">🔗</a></h2>
-<p>The <strong>Go To Definition</strong> feature navigates to the source of a type or member, and opens the result in a new tab.</p>
-<ul>
-<li>Pressing F12 while your text cursor is somewhere inside the symbol name</li>
-<li>Right click mouse on the symbol → Go to Definition</li>
-<li>Or ALT+F12 to peek the identifier definition without opening a new tab</li>
-</ul>
-<h2 id="6.-ctrl%2Bt-and-ctrl%2Bq---search-everywhere" tabindex="-1">6. CTRL+T and CTRL+Q - Search Everywhere <a class="direct-link" href="#6.-ctrl%2Bt-and-ctrl%2Bq---search-everywhere">🔗</a></h2>
-<ul>
-<li>CTRL+Q - Search everywhere in the code, including menu items</li>
-<li>CTRL+T - Search everywhere in the code</li>
-</ul>
-<h2 id="7.-dotnet-command" tabindex="-1">7. dotnet command <a class="direct-link" href="#7.-dotnet-command">🔗</a></h2>
-<ul>
-<li>It provides commands for working with .NET projects
-<ul>
-<li>e.g. <code>dotnet build</code> builds a project</li>
-<li>e.g. <code>dotnet --info</code> shows detailed information about a .NET installation</li>
-</ul>
-</li>
-<li>It runs .NET applications
-<ul>
-<li>e.g. <code>dotnet myApplication.exe</code> or <code>dotnet myApplication.dll</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="8.-project-story---viewing-csproj-in-summary" tabindex="-1">8. Project story - Viewing csproj in summary <a class="direct-link" href="#8.-project-story---viewing-csproj-in-summary">🔗</a></h2>
-<p>.NET projects are based on the MSBuild format. Project files, which have extensions like <strong>.csproj</strong> for C# project are in XML format. The csproj file includes settings related to targeted .NET Frameworks, project folders, NuGet package references etc.</p>
-<p>You can edit in 2 ways</p>
-<ul>
-<li>Solution Explorer → Select your project → Right Click → Select Edit Project File</li>
-<li>Solution Explorer → Double click on the project name</li>
-</ul>
-<h2 id="9.-project-packages-(nuget)" tabindex="-1">9. Project Packages (nuget) <a class="direct-link" href="#9.-project-packages-(nuget)">🔗</a></h2>
-<p>An essential tool for any modern development platform is a mechanism through which developers can create, share, and consume useful code. Often such code is bundled into &quot;packages&quot; that contain compiled code (as DLLs) along with other content needed in the projects that consume these packages (source <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">An introduction to Nuget</a>).</p>
-<p>For .NET (including .NET Core), the Microsoft-supported mechanism for sharing code is <strong>NuGet</strong> (essentially a single ZIP file) with the <strong>.nupkg</strong> extension.</p>
-<ul>
-<li>Solution Explorer → Right click on Project→ Manage Nuget Packages
-<ul>
-<li>Browse - Search for new packages</li>
-<li>Installed - See your installed packages</li>
-<li>Updates - See current updates for your installed packages (mind minor vs major updates)</li>
-</ul>
-</li>
-</ul>
-<h2 id="10.-visual-studio-extensions" tabindex="-1">10. Visual Studio Extensions <a class="direct-link" href="#10.-visual-studio-extensions">🔗</a></h2>
-<p>Extensions allow you to customize and enhance your experience in Visual Studio by adding new features or integrating existing tools (Amazon, Azure, ..). The main purpose is to increase <strong>your productivity</strong> and cater to your workflow.</p>
-<ul>
-<li>Top Menu → Extensions → Manage Extensions
-<ul>
-<li>Installed - All installed and pre-installed extensions</li>
-<li>Online - Search for new extensions</li>
-<li>Updates - Update extensions, some extensions update automatically</li>
-<li>Roaming Extensions Manager - If you are logged into Visual Studio with your Microsoft account you can sync your extensions to other devices with Visual Studio</li>
-</ul>
-</li>
-<li>Top free extensions for development
-<ul>
-<li>CodeMaid</li>
-<li>Productivity Power Tools 2019/2022 - Installs a few individual extensions for your productivity</li>
-<li>Live Share - Real-time collaborative development in Visual Studio and Visual Studio Code</li>
-<li>Web Essentials 2019/2022 -  Installs a few individual extensions for your web development</li>
-<li>AWS Toolkit - If you work/deploy to AWS</li>
-</ul>
-</li>
-</ul>
-<h2 id="11.-visual-studio-settings" tabindex="-1">11. Visual Studio Settings <a class="direct-link" href="#11.-visual-studio-settings">🔗</a></h2>
-<ul>
-<li>Top Menu → Edit → Advance → Word Wrap
-<ul>
-<li>Very useful so you don't need to move your horizontal bar</li>
-</ul>
-</li>
-<li>Top Menu → Tools→ Options → Projects and Solutions → Track Active Item in Solution Explorer -
-<ul>
-<li>Solution Explorer item is selected automatically when you edit the file in the Editor</li>
-</ul>
-</li>
-<li>Top Menu → Tools→ Options → Productivity Power Tools (Extension) → Power Commands → Remove and Sort Using on save</li>
-</ul>
-<h2 id="q%26a" tabindex="-1">Q&amp;A <a class="direct-link" href="#q%26a">🔗</a></h2>
-<h3 id="q%3A-how-to-create-a-new-project-within-the-solution%3F" tabindex="-1">Q: How to create a new project within the solution? <a class="direct-link" href="#q%3A-how-to-create-a-new-project-within-the-solution%3F">🔗</a></h3>
-<p>A1: Solution Explorer → Right click on Solution → Add → New project or Existing Project</p>
-<p>A2: Top Menu → File → Add → New project or Existing Project</p>
-<h3 id="q%3A-how-to-change-the-.net-version%3F" tabindex="-1">Q: How to change the .NET version? <a class="direct-link" href="#q%3A-how-to-change-the-.net-version%3F">🔗</a></h3>
-<p>A1: Double click on the project file to open the project as XML and edit the <code>&lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;</code> tag.</p>
-<p>A2: Solution Explorer → Right Click on the Project → Click Properties → Click Application → Change Target Framework</p>
-"
-  },
-  {
-    "title":"Jazor experiment",
-    "url":"/dotnet/jazor-experiment/",
-    "content":"<p>This experiment library helps with very common actions on the website which involve repeating JavaScript code across multiple different projects.</p>
-<p>Click a button or a link, do something in the backend and UI. This library takes an approach rather updating whole HTML blocks than granular tags with JSON and JavaScript libraries, so there is no need fiddling and mapping JSON objects to whatever UI you have.</p>
-<p>You might find this approach useful in certain project cases if you want to write minimum or no JavaScript. Still, JavaScript knowledge is required in certain scenarios.</p>
-<p>There is a crossover with <a href="https://github.com/dotnet/blazor">Blazor</a> or rather Jazor is filling a gap between static HTML/Razor pages and Blazor.</p>
-<p>When could you possibly use this library and not necessarily Blazor?</p>
-<ul>
-<li>You have got many Partial views in Razor pages and views which you would like to reuse e.g.</li>
-</ul>
-<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token return-type class-name">IActionResult</span> <span class="token function">OnGetNews</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>  <span class="token function">Partial</span><span class="token punctuation">(</span><span class="token string">"_NewsPartial"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>You would like a hybrid of your current website and add simple SPA functionality</li>
-<li>Your project doesn't require minimising traffic in between the browser and server</li>
-</ul>
-<p>This library is using currently:</p>
-<ul>
-<li>TypeScript to handle all common actions workload</li>
-<li><a href="http://ASP.NET">ASP.NET</a> Core 5.0 TagHelpers to simplify using <strong>data-</strong> and a bit help with strongly typed Controllers and Actions</li>
-<li>GitHub link <a href="https://github.com/VaclavElias/Jazor">https://github.com/VaclavElias/Jazor</a></li>
-</ul>
-<h2 id="requirements" tabindex="-1">Requirements <a class="direct-link" href="#requirements">🔗</a></h2>
-<ol>
-<li>Add <code>jazor.js</code> to your Razor page or _Layout.</li>
-<li>Add <code>@addTagHelper *, Jazor</code> to your _ViewImports.cshtml</li>
-</ol>
-<h2 id="todo" tabindex="-1">ToDo <a class="direct-link" href="#todo">🔗</a></h2>
-<ul>
-<li>Add more functionality</li>
-<li>Make prompts and spinners pluggable</li>
-</ul>
-<h2 id="examples" tabindex="-1">Examples <a class="direct-link" href="#examples">🔗</a></h2>
-<p>I will be using <a href="https://getbootstrap.com/">Bootstrap</a> in my examples.</p>
-<h3 id="example-1" tabindex="-1">Example 1 <a class="direct-link" href="#example-1">🔗</a></h3>
-<p>Load multiple delayed HTML / Partial Views.</p>
-<ul>
-<li>Load News part</li>
-<li>Load Top News part after 1 second</li>
-<li>This will load your HTML from your desired url</li>
-</ul>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">jazor-url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/examples/news<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Loading...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">jazor-url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@((nameof(ExamplesController), nameof(ExamplesController.TopNews), null))<span class="token punctuation">"</span></span> <span class="token attr-name">jazor-delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Loading...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<h3 id="example-2" tabindex="-1">Example 2 <a class="direct-link" href="#example-2">🔗</a></h3>
-<p>Click a button or link to load HTML / Partial Views to your target element.</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">jazor-click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/examples/itnews<span class="token punctuation">"</span></span> <span class="token attr-name">jazor-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Show .NET News<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">jazor-click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@((nameof(ExamplesController), nameof(ExamplesController.AngularNews), null))<span class="token punctuation">"</span></span> <span class="token attr-name">jazor-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Show Angular News<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The content will be loaded here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-"
-  },
-  {
-    "title":"Visual Studio Debugger Enumerable Visualizer",
-    "url":"/dotnet/visual-studio-debugger-enumerable-visualizer/",
-    "content":"<p>Visual Studio Debugger Enumerable Visualizer without any <code>[Serialize]</code> attribute, using Json was an experiment to get a better experience when debugging IEnumerables.</p>
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol id="success" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-    </symbol>
-    <symbol id="info" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-    </symbol>
-    <symbol id="warning" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-    </symbol>
-    <symbol id="danger" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-    </symbol>
-</svg>
-<div class="alert alert-warning d-flex">
-    <svg class="bi flex-shrink-0 me-2 mt-1" width="24" height="24" role="img"><use xlink:href="#warning" /></svg>
-    <div>
-        This is now <strong>inbuilt</strong> in <a href="https://devblogs.microsoft.com/visualstudio/view-net-collections-with-the-new-ienumerable-debugger-visualizer/">Visual Studio 2022</a> from version 17.2.
-    </div>
-</div>
-<p><img src="https://user-images.githubusercontent.com/4528464/59273012-2dc98f80-8c4f-11e9-8a76-c11620581a3e.png" alt="Visualiser example">{: .img-fluid}</p>
-<p><img src="https://user-images.githubusercontent.com/4528464/46559908-c0a87200-c8e9-11e8-83ba-deea211840f0.png" alt="Visualiser example">{: .img-fluid}</p>
-<p>Read more about my implementation here <a href="https://github.com/codecapital/EnumerableVisualizer">EnumerableVisualizer</a>.</p>
-"
-  },
-  {
+{
     "title":"Configuration experiment in ASP.NET Core – RemoteJsonFile",
-    "url":"/dotnet/configuration-experiment-aspnet.core-remote-json-file/",
-    "content":"<p>This is an experiment project to access <strong>appsettings.json</strong> from Azure Blob or any remote url.</p>
-<p>I will use public access to this Azure file considering no user secrets are included in this file. You would need to add additional options to secure your link if any user secrets are transmitted.</p>
-<p>Example url: <a href="https://your-storage.blob.core.windows.net/your-blob/appsettings.json">https://your-storage.blob.core.windows.net/your-blob/appsettings.json</a></p>
-<pre class="language-csharp"><code class="language-csharp">services<span class="token punctuation">.</span><span class="token function">AddRemoteJsonFile</span><span class="token punctuation">(</span>Configuration<span class="token punctuation">,</span> <span class="token string">"AppSettings:Url:RemoteUrl"</span><span class="token punctuation">,</span> options <span class="token operator">=></span><br><span class="token punctuation">{</span><br>    Configuration <span class="token operator">=</span> options<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>Source here <a href="https://github.com/codecapital/CodeCapital.AspNetCore/tree/net5.0/src/CodeCapital.AspNetCore.Extensions.Configuration.Json">CodeCapital.AspNetCore.Extensions.Configuration.Json</a>.</p>
-"
+    "excerpt": "This is an experiment project to access **appsettings.json** from Azure Blob or any remote url. ",
+    "author": "",
+    "date": "Sat Jun 01 2019 02:00:00 GMT+0200 (Central European Summer Time)",
+    "category": "",
+    "tags": "blog, C#, ASP.NET-Core",
+    "url":"https://www.vaclavelias.com/dotnet/configuration-experiment-aspnet.core-remote-json-file/",
+    "content":"This is an experiment project to access appsettings.json from Azure Blob or any remote url.I will use public access to this Azure file considering no user secrets are included in this file. You would need to add additional options to secure your link if any user secrets are transmitted.Example url: https://your-storage.blob.core.windows.net/your-blob/appsettings.jsonservices.AddRemoteJsonFile(Configuration, \"AppSettings:Url:RemoteUrl\", options =>{ Configuration = options;});Source here CodeCapital.AspNetCore.Extensions.Configuration.Json."
+  },{
+    "title":"Visual Studio Debugger Enumerable Visualizer",
+    "excerpt": "Visual Studio Debugger Enumerable Visualizer without any `[Serialize]` attribute, using Json was an experiment to get a better experience when debugging IEnumerables. ",
+    "author": "",
+    "date": "Tue Jun 11 2019 02:00:00 GMT+0200 (Central European Summer Time)",
+    "category": "",
+    "tags": "blog, C#, Visual-Studio",
+    "url":"https://www.vaclavelias.com/dotnet/visual-studio-debugger-enumerable-visualizer/",
+    "content":"Visual Studio Debugger Enumerable Visualizer without any [Serialize] attribute, using Json was an experiment to get a better experience when debugging IEnumerables. This is now inbuilt in Visual Studio 2022 from version 17.2. {: .img-fluid}{: .img-fluid}Read more about my implementation here EnumerableVisualizer."
+  },{
+    "title":"Jazor experiment",
+    "excerpt": " This experiment library helps with very common actions on the website which involve repeating JavaScript code across multiple different projects. ",
+    "author": "",
+    "date": "Sat Oct 31 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "category": "",
+    "tags": "blog, TypeScript, ASP.NET-Core, Advance",
+    "url":"https://www.vaclavelias.com/dotnet/jazor-experiment/",
+    "content":"This experiment library helps with very common actions on the website which involve repeating JavaScript code across multiple different projects.Click a button or a link, do something in the backend and UI. This library takes an approach rather updating whole HTML blocks than granular tags with JSON and JavaScript libraries, so there is no need fiddling and mapping JSON objects to whatever UI you have.You might find this approach useful in certain project cases if you want to write minimum or no JavaScript. Still, JavaScript knowledge is required in certain scenarios.There is a crossover with Blazor or rather Jazor is filling a gap between static HTML/Razor pages and Blazor.When could you possibly use this library and not necessarily Blazor?You have got many Partial views in Razor pages and views which you would like to reuse e.g.public IActionResult OnGetNews() => Partial(\"_NewsPartial\", 10);You would like a hybrid of your current website and add simple SPA functionalityYour project doesn't require minimising traffic in between the browser and serverThis library is using currently:TypeScript to handle all common actions workloadASP.NET Core 5.0 TagHelpers to simplify using data- and a bit help with strongly typed Controllers and ActionsGitHub link https://github.com/VaclavElias/JazorRequirements 🔗Add jazor.js to your Razor page or _Layout.Add @addTagHelper *, Jazor to your _ViewImports.cshtmlToDo 🔗Add more functionalityMake prompts and spinners pluggableExamples 🔗I will be using Bootstrap in my examples.Example 1 🔗Load multiple delayed HTML / Partial Views.Load News partLoad Top News part after 1 secondThis will load your HTML from your desired url&lt;div jazor-url=\"/examples/news\">Loading...&lt;/div>&lt;div jazor-url=\"@((nameof(ExamplesController), nameof(ExamplesController.TopNews), null))\" jazor-delay=\"1\">Loading...&lt;/div>Example 2 🔗Click a button or link to load HTML / Partial Views to your target element.&lt;button jazor-click=\"/examples/itnews\" jazor-target=\"content\" type=\"button\" class=\"btn btn-primary\">Show .NET News&lt;/div>&lt;button jazor-click=\"@((nameof(ExamplesController), nameof(ExamplesController.AngularNews), null))\" jazor-target=\"content\" type=\"button\" class=\"btn btn-primary\">Show Angular News&lt;/button>&lt;div id=\"content\">The content will be loaded here.&lt;/div>"
+  },{
+    "title":"Visual Studio Intro",
+    "excerpt": " This intro is a **quick reference** and it should help you to familiarise quickly with the key and essential **Visual Studio** (VS) functionality. ",
+    "author": "",
+    "date": "Sat Apr 03 2021 02:00:00 GMT+0200 (Central European Summer Time)",
+    "category": "",
+    "tags": "blog, C#, Visual-Studio, Beginner",
+    "url":"https://www.vaclavelias.com/dotnet/visual-studio-intro/",
+    "content":"This intro is a quick reference and it should help you to familiarise quickly with the key and essential Visual Studio (VS) functionality.The VS Integrated Development Environment (IDE) might look overwhelming in the beginning but there is no need to know everything. More you work with VS you will start discovering what you need and you will eventually understand the complexity of VS by passive learning.Initial notes:You should already be familiar with any coding/development IDEThis is not a tutorial, this is a quick reference on what is the most important or helpful to know when you start working with Visual Studio. Do check any available material to familiarise and learn if you don't understand this guideIf you don't know certain terms just google themContent 🔗1. Solution vs Project2. Opening Solution / Project3. Solution Explorer4. Windows Management5. F12 is your friend - Go to Definition6. CTRL+T and CTRL+Q - Search Everywhere7. dotnet command8. Project story - Viewing csproj in summary9. Project Packages (nuget)10. Visual Studio Extensions11. Visual Studio SettingsQ&amp;A1. Solution vs Project 🔗Solution contains 1 or more projects to logically organise your projects together.2. Opening Solution / Project 🔗You can open a project by clicking on a file with extension .sln (solution) or .csproj (C# project). If you open a project which is part of a solution, the solution might open instead automatically.3. Solution Explorer 🔗Once you open your Solution or Project you want to see your Solution Explorer which contains a logical hierarchy of all folders and files which are needed to build your project. You are going to use this window and navigate through it very frequently. Usually you would have your Solution Explorer on the right or on the left always visible.Note: If you cannot see it go to Menu → View → Click Solution Explorer (first in the menu)4. Windows Management 🔗You might use these options below frequently to arrange your windows. More info about customising layouts.Vertical Document Group - If you need to see different files next to each other {: .img-fluid}Horizontal Document Group - If you need to see different files horizontallySplit Window - You can split horizontally the edition of a file through Window → Split. This is especially useful when visualizing or editing two locations in a large file {: .img-fluid} {: .img-fluid}New Window - Open an instance of the same file in a separate window, Window → New Window5. F12 is your friend - Go to Definition 🔗The Go To Definition feature navigates to the source of a type or member, and opens the result in a new tab.Pressing F12 while your text cursor is somewhere inside the symbol nameRight click mouse on the symbol → Go to DefinitionOr ALT+F12 to peek the identifier definition without opening a new tab6. CTRL+T and CTRL+Q - Search Everywhere 🔗CTRL+Q - Search everywhere in the code, including menu itemsCTRL+T - Search everywhere in the code7. dotnet command 🔗It provides commands for working with .NET projectse.g. dotnet build builds a projecte.g. dotnet --info shows detailed information about a .NET installationIt runs .NET applicationse.g. dotnet myApplication.exe or dotnet myApplication.dll8. Project story - Viewing csproj in summary 🔗.NET projects are based on the MSBuild format. Project files, which have extensions like .csproj for C# project are in XML format. The csproj file includes settings related to targeted .NET Frameworks, project folders, NuGet package references etc.You can edit in 2 waysSolution Explorer → Select your project → Right Click → Select Edit Project FileSolution Explorer → Double click on the project name9. Project Packages (nuget) 🔗An essential tool for any modern development platform is a mechanism through which developers can create, share, and consume useful code. Often such code is bundled into &quot;packages&quot; that contain compiled code (as DLLs) along with other content needed in the projects that consume these packages (source An introduction to Nuget).For .NET (including .NET Core), the Microsoft-supported mechanism for sharing code is NuGet (essentially a single ZIP file) with the .nupkg extension.Solution Explorer → Right click on Project→ Manage Nuget PackagesBrowse - Search for new packagesInstalled - See your installed packagesUpdates - See current updates for your installed packages (mind minor vs major updates)10. Visual Studio Extensions 🔗Extensions allow you to customize and enhance your experience in Visual Studio by adding new features or integrating existing tools (Amazon, Azure, ..). The main purpose is to increase your productivity and cater to your workflow.Top Menu → Extensions → Manage ExtensionsInstalled - All installed and pre-installed extensionsOnline - Search for new extensionsUpdates - Update extensions, some extensions update automaticallyRoaming Extensions Manager - If you are logged into Visual Studio with your Microsoft account you can sync your extensions to other devices with Visual StudioTop free extensions for developmentCodeMaidProductivity Power Tools 2019/2022 - Installs a few individual extensions for your productivityLive Share - Real-time collaborative development in Visual Studio and Visual Studio CodeWeb Essentials 2019/2022 - Installs a few individual extensions for your web developmentAWS Toolkit - If you work/deploy to AWS11. Visual Studio Settings 🔗Top Menu → Edit → Advance → Word WrapVery useful so you don't need to move your horizontal barTop Menu → Tools→ Options → Projects and Solutions → Track Active Item in Solution Explorer -Solution Explorer item is selected automatically when you edit the file in the EditorTop Menu → Tools→ Options → Productivity Power Tools (Extension) → Power Commands → Remove and Sort Using on saveQ&amp;A 🔗Q: How to create a new project within the solution? 🔗A1: Solution Explorer → Right click on Solution → Add → New project or Existing ProjectA2: Top Menu → File → Add → New project or Existing ProjectQ: How to change the .NET version? 🔗A1: Double click on the project file to open the project as XML and edit the &lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt; tag.A2: Solution Explorer → Right Click on the Project → Click Properties → Click Application → Change Target Framework"
+  },{
+    "title":"Visual Studio Advance",
+    "excerpt": " This post is a **quick reference** and should help you to familiarise quickly with the key and essential **Visual Studio** (VS) functionality. ",
+    "author": "",
+    "date": "Mon May 24 2021 02:00:00 GMT+0200 (Central European Summer Time)",
+    "category": "",
+    "tags": "blog, C#, Visual-Studio, Advance",
+    "url":"https://www.vaclavelias.com/dotnet/visual-studio-advance/",
+    "content":"This post is a quick reference and should help you to familiarise quickly with the key and essential Visual Studio (VS) functionality.The VS Integrated Development Environment (IDE) might look overwhelming in the beginning but there is no need to know everything. More you work with VS you will start discovering what you need and you will eventually understand the complexity of VS by passive learning.Initial notes:You should already be familiar with any coding/development IDEThis is not a tutorial, this is a quick reference on what is the most important or helpful to know when you start working with Visual Studio. Do check any available material to familiarise and learn if you don't understand this guideIf you don't know certain terms just google themContent 🔗1. Solution vs Project2. Solution Explorer3. Sharing your Code4. Default Configuration - AppSettings.cs / appsettings.json5. Manage User Secrets6. editorconfigQ&amp;A1. Solution vs Project 🔗Depends on your circumstances and your team workflow, you might find different (sometimes confusing) folder structure patterns.VS projects can be in different physical locations on your drive and your VS solution is referencing them wherever the projects are. You can also have multiple solutions *.sln if you need to reference/view projects in different ways. Many projects will be grouped together in their parent folder.Your solution projects might be independent from each other or some of them might have dependencies. The circular dependencies are not allowed and it is an anti-pattern.There are many ways to organise your solution. If you work in a team or alone, consistency is important.See some basic folder structure examples:Example 1 - Projects in one repository - Mono-repo 🔗This example is showing independent projects with no project dependencies, which are grouped together in the api-bureau.sln solution. The intention might be to extract a common library which will be used by all projects. All projects are in the same repository to simplify a workflow for the small team who needs to work across all projects./api-bureau/api-bureau/api-bureau.sln/api-bureau/.gitignore/api-bureau/src/ApiBureau.CloudCall.Api/api-bureau/src/ApiBureau.Confluence.Api/api-bureau/src/ApiBureau.SharePoint.Api/api-bureau/test/ApiBureau.CloudCall.Api.UnitTests/api-bureau/test/ApiBureau.Confluence.Api.UnitTests/api-bureau/test/ApiBureau.SharePoint.Api.UnitTestsExample 2 - Projects in multiple repositories 🔗This example is showing projects, which are grouped together in the ApiBureau.AllApis.sln solution. The only dependency is that all-apis project is dependent on all other APIs. The teams working mostly independently prefer to have their repos separated.Note: Visual Studio 2022+ supports managing multiple repositories from one solution./api-bureau/api-bureau/all-apis/.gitignore/api-bureau/all-apis/ApiBureau.AllApis.sln/api-bureau/all-api/src/ApiBureau.AllApis.Console/api-bureau/cloudcall-api/.gitignore/api-bureau/cloudcall-api/ApiBureau.CloudCall.sln/api-bureau/cloudcall-api/src/ApiBureau.CloudCall.Api/api-bureau/cloudcall-api/test/ApiBureau.CloudCall.Api.UnitTests/api-bureau/confluence-api/.gitignore/api-bureau/confluence-api/ApiBureau.Confluence.sln/api-bureau/confluence-api/src/ApiBureau.Confluence.Api/api-bureau/confluence-api/test/ApiBureau.Confluence.Api.UnitTests/api-bureau/sharepoint-api/.gitignore/api-bureau/sharepoint-api/ApiBureau.SharePoint.sln/api-bureau/sharepoint-api/src/ApiBureau.SharePoint.Api/api-bureau/sharepoint-api/test/ApiBureau.SharePoint.Api.UnitTests2. Solution Explorer 🔗By default your Solution Explorer is showing only the most relevant files. And some files e.g., *.cs will automatically appear in your Solution Explorer when you copy a file to your project folder or create a new C# file.Some files e.g., .gitignore are hidden in the Solution Explorer so they don't distract you. It is good to familiarise yourself with the project folders and files. You can toggle these files by:Solution Explorer Toolbar → Click Show All FilesOr you can see all files on your drive through File Explorer:Solution Explorer → Right click on Solution -&gt; Open Folder in File ExplorerIf you don't use Solution Explorer, you can collapse this window to a vertical bar on the side of your screen. This is helpful when you share a screen, to get more visibility of your code.Solution Explorer → Click the Auto Hide pin iconTo reverse, click the vertical bar, then Solution Explorer and then pin icon again.More Solution Explorer resources.3. Live Sharing your Code - Collaborative Coding 🔗You are becoming familiar with VS and one day you need a help with your code. Your colleague or friend doesn't have the project you are working on, maybe they don't have VS but they have Visual Studio Code. Now you can share your VS session with anyone. Your colleagues will see exactly what you see, or they can navigate independently without downloading your project.Live Share lets you collaboratively explore, edit and debug with others in real time, regardless of what programming languages you're using or app types you're building.Read more about Live Sharing.4. Default Configuration - AppSettings.cs / appsettings.json 🔗Application configuration is a huge subject. If you are working with ASP.NET Core, get familiar with appsettings.json and also with AppSettings.cs. IOptions&lt;AppSettings&gt; will let you use your configuration through strongly typed settings and dependency injection..NET has lots of helpers and methods which will simplify access to your configuration and you can use them also outside of ASP.NET Core applications, e.g., Console Application.Very important is the sequence of configuration providers:appsettings.jsonappsettings.{Environment}.jsonUser secretsEnvironment variablesCommand-line argumentsLots of reading on this subject here Application Configuration.5. Manage User Secrets 🔗Any passwords, secrets, any information you don't want to share has to be secured and not committed to your source control system like Git. How do you do it in VS? Very easily.Solution Explorer → Select your project → Right Click → Select Manage User SecretsVS might ask to install this NuGet Microsoft.Extensions.Configuration.UserSecrets or it will open file secrets.json.You can use also .NET CLI to manage this fileFile secrets.json is kept outside of your VS projects and solution and it is never pushed to your git repository. Note, that this file is not encrypted. It is a plain text file, still hanging on your computer in this location:%APPDATA%\\Microsoft\\UserSecrets\\&lt;user_secrets_id&gt;\\secrets.jsonRead more about Secrets in development subject.6. editorconfig 🔗If you work alone or in a team, code consistency is very important in each project.You can add an EditorConfig file to your project or codebase to enforce consistent coding styles for everyone that works in the codebase. Do ask your colleagues and propose this process if it is not in place. Consistency helps with readability across all projects.More about this subject here Settings with EditorConfig.Q&amp;A 🔗Q: How to change the .NET version? 🔗A1: Double click on the project file to open the project as XML and edit the &lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt; tag. You can also target multiple frameworks by replacing this tag with &lt;TargetFrameworks&gt;net5.0;net6.0&lt;/TargetFrameworks&gt; tag."
+  },{
+    "title":"Stride minimal API / Code only approach",
+    "excerpt": "**12 lines** of code, this is what it takes to run Stride 3D example below (plus some `usings` on the top). ",
+    "author": "",
+    "date": "Fri May 13 2022 02:00:00 GMT+0200 (Central European Summer Time)",
+    "category": "",
+    "tags": "blog, C#, Stride3D, .NET, Game",
+    "url":"https://www.vaclavelias.com/stride3d/stride3d-minimal-api-code-only/",
+    "content":"12 lines of code, this is what it takes to run Stride 3D example below (plus some usings on the top).This works only with Stride 4.1+.Follow the steps in this stride-code-only repository.Related tweet.using var game = new Game();game.Run(start: (Scene rootScene) =>{ game.SetupBase3DScene(); var entity = new Entity(new Vector3(1f, 0.5f, 3f)); entity.Add(new ModelComponent(new CubeProceduralModel().Generate(game.Services))); entity.Scene = rootScene;});"
+  },{
+    "title":"About Me - Vaclav Elias",
+    "excerpt": "",
+    "author": "",
+    "date": "",
+    "category": "",
+    "tags": "",
+    "url":"https://www.vaclavelias.com/about/",
+    "content":"Thanks for visiting my site. My name is Vaclav Elias (Vašo), and this is my weblog about various technical subjects.I live in London and work at twentyAI as the T360 Principal Engineer.I am a programmer 💻. I am interested in C# and .NET (Core) coding.Random Facts About Me 🔗I am from Slovakia, MartinI practise Yoga 🧘‍♂️I did PADI Open Water 🤿, PADI Rescue Diver ⛑ and PADI Dive Master 🌊 trainingConnect 🔗LinkedInTwitterGitHub"
+  },{
+    "title":"Blog Archive - Vaclav Elias",
+    "excerpt": "",
+    "author": "",
+    "date": "",
+    "category": "",
+    "tags": "",
+    "url":"https://www.vaclavelias.com/archive/",
+    "content":"Archive 🔗2022May 13 Stride minimal API / Code only approach2021May 24 Visual Studio AdvanceApr 03 Visual Studio Intro2020Oct 31 Jazor experiment2019Jun 11 Visual Studio Debugger Enumerable VisualizerJun 01 Configuration experiment in ASP.NET Core – RemoteJsonFile"
+  },{
+    "title":"Blog - Vaclav Elias",
+    "excerpt": "",
+    "author": "",
+    "date": "",
+    "category": "",
+    "tags": "",
+    "url":"https://www.vaclavelias.com/blog/",
+    "content":"Blog Stride minimal API / Code only approach May 13, 2022 12 lines of code, this is what it takes to run Stride 3D example below (plus some usings on the top). C#Stride3D.NETGame Visual Studio Advance May 24, 2021 This post is a quick reference and should help you to familiarise quickly with the key and essential Visual Studio (VS) functionality. C#Visual StudioAdvance Visual Studio Intro April 03, 2021 This intro is a quick reference and it should help you to familiarise quickly with the key and essential Visual Studio (VS) functionality. C#Visual StudioBeginner Jazor experiment October 31, 2020 This experiment library helps with very common actions on the website which involve repeating JavaScript code across multiple different projects. TypeScriptASP.NET CoreAdvance Visual Studio Debugger Enumerable Visualizer June 11, 2019 Visual Studio Debugger Enumerable Visualizer without any [Serialize] attribute, using Json was an experiment to get a better experience when debugging IEnumerables. C#Visual Studio Configuration experiment in ASP.NET Core – RemoteJsonFile June 01, 2019 This is an experiment project to access appsettings.json from Azure Blob or any remote url. C#ASP.NET Core &laquo; Previous 1 Next &raquo; Popular Blogs Microsoft Dev Blog Visual Studio Blog .NET Blog Resources Microsoft Docs Stride 3D Game Engine "
+  },{
+    "title":"Vaclav Elias - Code or not to code",
+    "excerpt": "",
+    "author": "",
+    "date": "",
+    "category": "",
+    "tags": "",
+    "url":"https://www.vaclavelias.com/",
+    "content":" Stride minimal API / Code only approach May 13, 2022 12 lines of code, this is what it takes to run Stride 3D example below (plus some usings on the top).This works only with Stride 4.1+.Follow the steps in this stride-code-only repository.Related tweet.using var game = new Game();game.Run(start: (Scene rootScene) =>{ game.SetupBase3DScene(); var entity = new Entity(new Vector3(1f, 0.5f, 3f)); entity.Add(new ModelComponent(new CubeProceduralModel().Generate(game.Services))); entity.Scene = rootScene;}); C#Stride3D.NETGame Recent Posts Visual Studio Advance Visual Studio Intro Jazor experiment Visual Studio Debugger Enumerable Visualizer Configuration experiment in ASP.NET Core – RemoteJsonFile "
+  },{
+    "title":"Blog Tags - Vaclav Elias",
+    "excerpt": "",
+    "author": "",
+    "date": "",
+    "category": "",
+    "tags": "",
+    "url":"https://www.vaclavelias.com/tags/",
+    "content":"Tags 🔗 .NET Stride minimal API / Code only approach ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approach Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
+  },{
+    "title":"Search",
+    "excerpt": "",
+    "author": "",
+    "date": "",
+    "category": "",
+    "tags": "",
+    "url":"https://www.vaclavelias.com/search/",
+    "content":"Search Result Popular Blogs Microsoft Dev Blog Visual Studio Blog .NET Blog Resources Microsoft Docs Stride 3D Game Engine "
   }
 ]

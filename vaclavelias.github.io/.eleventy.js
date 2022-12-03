@@ -11,6 +11,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("assets/img");
     eleventyConfig.addPassthroughCopy("favicon.ico");
+    eleventyConfig.addPassthroughCopy({ "node_modules/lunr/lunr.min.js": "assets/scripts/lunr.min.js"});
     eleventyConfig.exc
 
     //eleventyConfig.addCollection("posts", (collection) => {
@@ -50,6 +51,22 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter('jsonify', function (variable) {
         return JSON.stringify(variable);
+    });
+
+    eleventyConfig.addFilter('normalize_whitespace', function (text) {
+
+        //Remove tabs
+        text = text.replace(/\t/g, '');
+
+        text = text.replace(/\r/g, '');
+
+        //Remove big spaces and punctuation
+        text = text.replace(/\n/g, ' ');
+
+        //remove repeated spaces
+        text = text.replace(/ +(?= )/g, '');
+
+        return text;
     });
 
     eleventyConfig.setFrontMatterParsingOptions({

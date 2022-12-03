@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "lunr": "^2.3.9",
     "markdown-it-anchor": "^8.6.5",
     "sass": "^1.56.1"
   }
