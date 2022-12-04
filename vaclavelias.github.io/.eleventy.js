@@ -80,7 +80,7 @@ module.exports = function (eleventyConfig) {
             .getFilteredByTag('blog')
             .reduce((tags, item) => tags.concat(item.data.tags), [])
             .filter((tag) => !!tag)
-            .filter((tag) => !!tag && !['page', 'blog'].includes(tag))
+            .filter((tag) => !!tag && !['page', 'blog', 'search'].includes(tag))
             .sort();
         return Array.from(new Set(uniqueTags));
     });

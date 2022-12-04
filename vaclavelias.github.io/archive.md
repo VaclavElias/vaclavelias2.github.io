@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Blog Archive - Vaclav Elias
+tags: search
 ---
 # Archive
 {% assign reversedPosts = collections.blog | reverse %}

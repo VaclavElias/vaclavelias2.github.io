@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Blog Tags - Vaclav Elias
+tags: search
 ---
 # Tags
 {% assign sorted_tags = collections.tagList %}
