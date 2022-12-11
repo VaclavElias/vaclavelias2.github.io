@@ -3,7 +3,7 @@
     "title":"Configuration experiment in ASP.NET Core – RemoteJsonFile",
     "excerpt": "This is an experiment project to access **appsettings.json** from Azure Blob or any remote url. ",
     "author": "",
-    "date": "Sat Jun 01 2019 02:00:00 GMT+0200 (Central European Summer Time)",
+    "date": "June 01, 2019",
     "category": "",
     "tags": "blog, search, C#, ASP.NET-Core",
     "url":"https://www.vaclavelias.com/dotnet/configuration-experiment-aspnet.core-remote-json-file/",
@@ -12,7 +12,7 @@
     "title":"Visual Studio Debugger Enumerable Visualizer",
     "excerpt": "Visual Studio Debugger Enumerable Visualizer without any `[Serialize]` attribute, using Json was an experiment to get a better experience when debugging IEnumerables. ",
     "author": "",
-    "date": "Tue Jun 11 2019 02:00:00 GMT+0200 (Central European Summer Time)",
+    "date": "June 11, 2019",
     "category": "",
     "tags": "blog, search, C#, Visual-Studio",
     "url":"https://www.vaclavelias.com/dotnet/visual-studio-debugger-enumerable-visualizer/",
@@ -21,7 +21,7 @@
     "title":"Jazor experiment",
     "excerpt": " This experiment library helps with very common actions on the website which involve repeating JavaScript code across multiple different projects. ",
     "author": "",
-    "date": "Sat Oct 31 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "date": "October 31, 2020",
     "category": "",
     "tags": "blog, search, TypeScript, ASP.NET-Core, Advance",
     "url":"https://www.vaclavelias.com/dotnet/jazor-experiment/",
@@ -30,7 +30,7 @@
     "title":"Visual Studio Intro",
     "excerpt": " This intro is a **quick reference** and it should help you to familiarise quickly with the key and essential **Visual Studio** (VS) functionality. ",
     "author": "",
-    "date": "Sat Apr 03 2021 02:00:00 GMT+0200 (Central European Summer Time)",
+    "date": "April 03, 2021",
     "category": "",
     "tags": "blog, search, C#, Visual-Studio, Beginner",
     "url":"https://www.vaclavelias.com/dotnet/visual-studio-intro/",
@@ -39,7 +39,7 @@
     "title":"Visual Studio Advance",
     "excerpt": " This post is a **quick reference** and should help you to familiarise quickly with the key and essential **Visual Studio** (VS) functionality. ",
     "author": "",
-    "date": "Mon May 24 2021 02:00:00 GMT+0200 (Central European Summer Time)",
+    "date": "May 24, 2021",
     "category": "",
     "tags": "blog, search, C#, Visual-Studio, Advance",
     "url":"https://www.vaclavelias.com/dotnet/visual-studio-advance/",
@@ -48,28 +48,28 @@
     "title":"Stride minimal API / Code only approach",
     "excerpt": "**12 lines** of code, this is what it takes to run Stride 3D example below (plus some `usings` on the top). ",
     "author": "",
-    "date": "Fri May 13 2022 02:00:00 GMT+0200 (Central European Summer Time)",
+    "date": "May 13, 2022",
     "category": "",
     "tags": "blog, search, C#, Stride3D, .NET, Game",
     "url":"https://www.vaclavelias.com/stride3d/stride3d-minimal-api-code-only/",
     "content":"12 lines of code, this is what it takes to run Stride 3D example below (plus some usings on the top).This works only with Stride 4.1+.Follow the steps in this stride-code-only repository.Related tweet.using var game = new Game();game.Run(start: (Scene rootScene) =>{ game.SetupBase3DScene(); var entity = new Entity(new Vector3(1f, 0.5f, 3f)); entity.Add(new ModelComponent(new CubeProceduralModel().Generate(game.Services))); entity.Scene = rootScene;});"
   },{
     "title":"Blog Archive - Vaclav Elias",
-    "excerpt": "",
+    "excerpt": "Blog Archive ",
     "author": "",
     "date": "",
     "category": "",
     "tags": "search",
     "url":"https://www.vaclavelias.com/archive/",
-    "content":"Archive 🔗2022May 13 Stride minimal API / Code only approach2021May 24 Visual Studio AdvanceApr 03 Visual Studio Intro2020Oct 31 Jazor experiment2019Jun 11 Visual Studio Debugger Enumerable VisualizerJun 01 Configuration experiment in ASP.NET Core – RemoteJsonFile"
+    "content":"Blog ArchiveArchive 🔗2022May 13 Stride minimal API / Code only approach2021May 24 Visual Studio AdvanceApr 03 Visual Studio Intro2020Oct 31 Jazor experiment2019Jun 11 Visual Studio Debugger Enumerable VisualizerJun 01 Configuration experiment in ASP.NET Core – RemoteJsonFile"
   },{
     "title":"Blog Tags - Vaclav Elias",
-    "excerpt": "",
+    "excerpt": "Blog Tags ",
     "author": "",
     "date": "",
     "category": "",
     "tags": "search",
     "url":"https://www.vaclavelias.com/tags/",
-    "content":"Tags 🔗 .NET Stride minimal API / Code only approach ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approach Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
+    "content":"Blog TagsTags 🔗 .NET Stride minimal API / Code only approach ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approach Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
   }
 ]

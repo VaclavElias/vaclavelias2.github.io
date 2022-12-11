@@ -15,11 +15,11 @@
             for (var i = 0; i < results.length; i++) {
                 var post = store[results[i].ref];
                 appendString += `
-<article class="card mb-4 p-4 search-main">
-    <div class="row justify-content-center">
+<article class="search-main">
+    <div class="row justify-content-center pt-3 pb-1">
         <div class="col-12 post-card-header">
-            <h3 class="entry-title"><a href="${post.url}">${post.title}</a></h3>
-            ${getDate(post.date)}
+            <h4 class="entry-title"><a href="${post.url}">${post.title}</a></h3>
+            <p>${getDate(post.date)}</p>
             <p>${post.author}</p>
             <p>
                 ${getExcerpt(post)}...
@@ -38,13 +38,7 @@
     function getDate(date) {
         if (date.length === 0) return '';
 
-        return `
-            <p class="d-flex justify-content-between">
-                <span>
-                    <i class="fa-solid fa-calendar-days me-1"></i> ${date}
-                </span>
-            </p>
-`
+        return `${date}`;
     }
 
     function getExcerpt(post) {

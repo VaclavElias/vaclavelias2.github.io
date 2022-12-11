@@ -3,6 +3,8 @@ layout: page
 title: Blog Tags - Vaclav Elias
 tags: search
 ---
+Blog Tags
+<!-- excerpt -->
 # Tags
 {% assign sorted_tags = collections.tagList %}
 {% for tag in sorted_tags %}
