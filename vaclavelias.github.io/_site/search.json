@@ -61,7 +61,7 @@
     "category": "",
     "tags": "search",
     "url":"https://www.vaclavelias.com/archive/",
-    "content":"Blog ArchiveArchive 🔗2022May 13 Stride minimal API / Code only approach2021May 24 Visual Studio AdvanceApr 03 Visual Studio Intro2020Oct 31 Jazor experiment2019Jun 11 Visual Studio Debugger Enumerable VisualizerJun 01 Configuration experiment in ASP.NET Core – RemoteJsonFile"
+    "content":"Blog ArchiveArchive 🔗2022Dec 19 C# code reference in 11tyMay 13 Stride minimal API / Code only approach2021May 24 Visual Studio AdvanceApr 03 Visual Studio Intro2020Oct 31 Jazor experiment2019Jun 11 Visual Studio Debugger Enumerable VisualizerJun 01 Configuration experiment in ASP.NET Core – RemoteJsonFile"
   },{
     "title":"Blog Tags - Vaclav Elias",
     "excerpt": "Blog Tags ",
@@ -70,6 +70,15 @@
     "category": "",
     "tags": "search",
     "url":"https://www.vaclavelias.com/tags/",
-    "content":"Blog TagsTags 🔗 .NET Stride minimal API / Code only approach ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approach Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
+    "content":"Blog TagsTags 🔗 .NET Stride minimal API / Code only approachC# code reference in 11ty ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approachC# code reference in 11ty Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
+  },{
+    "title":"C# code reference in 11ty",
+    "excerpt": "",
+    "author": "",
+    "date": "December 19, 2022",
+    "category": "",
+    "tags": "blog, search, C#, .NET",
+    "url":"https://www.vaclavelias.com/dotnet/code-reference-example/",
+    "content":"var builder = WebApplication.CreateBuilder(args);var app = builder.Build();app.MapGet(\"/\", () => \"Hello World!\");app.Run();[!code-csharpAnimationBasics]"
   }
 ]
