@@ -54,6 +54,15 @@
     "url":"https://www.vaclavelias.com/stride3d/stride3d-minimal-api-code-only/",
     "content":"12 lines of code, this is what it takes to run Stride 3D example below (plus some usings on the top).This works only with Stride 4.1+.Follow the steps in this stride-code-only repository.Related tweet.using var game = new Game();game.Run(start: (Scene rootScene) =>{ game.SetupBase3DScene(); var entity = new Entity(new Vector3(1f, 0.5f, 3f)); entity.Add(new ModelComponent(new CubeProceduralModel().Generate(game.Services))); entity.Scene = rootScene;});"
   },{
+    "title":"C# code reference in 11ty",
+    "excerpt": "",
+    "author": "",
+    "date": "December 19, 2022",
+    "category": "",
+    "tags": "blog, search, C#, .NET",
+    "url":"https://www.vaclavelias.com/dotnet/code-reference-example/",
+    "content":"var builder = WebApplication.CreateBuilder(args);var app = builder.Build();app.MapGet(\"/\", () => \"Hello World!\");app.Run();[!code-csharpAnimationBasics]"
+  },{
     "title":"Blog Archive - Vaclav Elias",
     "excerpt": "Blog Archive ",
     "author": "",
@@ -71,14 +80,5 @@
     "tags": "search",
     "url":"https://www.vaclavelias.com/tags/",
     "content":"Blog TagsTags 🔗 .NET Stride minimal API / Code only approachC# code reference in 11ty ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approachC# code reference in 11ty Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
-  },{
-    "title":"C# code reference in 11ty",
-    "excerpt": "",
-    "author": "",
-    "date": "December 19, 2022",
-    "category": "",
-    "tags": "blog, search, C#, .NET",
-    "url":"https://www.vaclavelias.com/dotnet/code-reference-example/",
-    "content":"var builder = WebApplication.CreateBuilder(args);var app = builder.Build();app.MapGet(\"/\", () => \"Hello World!\");app.Run();[!code-csharpAnimationBasics]"
   }
 ]

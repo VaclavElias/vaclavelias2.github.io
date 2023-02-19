@@ -9,7 +9,7 @@ tags:
 image: /assets/img/dotnet-bot_scene_juggling-small.png
 ---
 ```csharp
-{% include ../Program3.cs %}
+{% include ../Program.cs %}
 ```
 
 [!code-csharp[AnimationBasics](../Program.cs)]
