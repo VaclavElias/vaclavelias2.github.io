@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Configuration experiment in ASP.NET Core – RemoteJsonFile</title>
+    <title>C# code reference in 11ty</title>
     <meta name="author" content="Vaclav Elias">
-    <meta name="description" content="Access remote json configuration from your ASP.NET Core application">
+    <meta name="description" content="Referencing C# code in 11ty">
     <link rel="stylesheet" href="/assets/css/styles.css">
     
 </head>
@@ -46,22 +46,19 @@
         <div class="row postcontent">
     <div class="col-12">
         <article>
-            <h1>Configuration experiment in ASP.NET Core – RemoteJsonFile Last Modified</h1>
+            <h1>C# code reference in 11ty Last Modified</h1>
             <div class="entry-meta entry-meta-layoutt text-center">
                 <p class="x-hidden-focus mt-4 pt-1 small text-muted date d-inline-block">
-                    June 01, 2019
+                    December 19, 2022
                 </p>
             </div>
-            <p>This is an experiment project to access <strong>appsettings.json</strong> from Azure Blob or any remote url.</p>
-<p>I will use public access to this Azure file considering no user secrets are included in this file. You would need to add additional options to secure your link if any user secrets are transmitted.</p>
-<p>Example url: <a href="https://your-storage.blob.core.windows.net/your-blob/appsettings.json">https://your-storage.blob.core.windows.net/your-blob/appsettings.json</a></p>
-<pre class="language-csharp"><code class="language-csharp">services<span class="token punctuation">.</span><span class="token function">AddRemoteJsonFile</span><span class="token punctuation">(</span>Configuration<span class="token punctuation">,</span> <span class="token string">"AppSettings:Url:RemoteUrl"</span><span class="token punctuation">,</span> options <span class="token operator">=></span><br><span class="token punctuation">{</span><br>    Configuration <span class="token operator">=</span> options<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>Source here <a href="https://github.com/codecapital/CodeCapital.AspNetCore/tree/net5.0/src/CodeCapital.AspNetCore.Extensions.Configuration.Json">CodeCapital.AspNetCore.Extensions.Configuration.Json</a>.</p>
+            <pre class="language-csharp"><code class="language-csharp"><span class="token class-name"><span class="token keyword">var</span></span> builder <span class="token operator">=</span> WebApplication<span class="token punctuation">.</span><span class="token function">CreateBuilder</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token class-name"><span class="token keyword">var</span></span> app <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">Build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>app<span class="token punctuation">.</span><span class="token function">MapGet</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>app<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
+<p>[!code-csharp<a href="../Program.cs">AnimationBasics</a>]</p>
 
             <hr />
-            <p><span class="badge rounded-pill text-bg-success me-1">C#</span><span class="badge rounded-pill text-bg-success me-1">ASP.NET Core</span></p>
+            <p><span class="badge rounded-pill text-bg-success me-1">C#</span><span class="badge rounded-pill text-bg-success me-1">.NET</span></p>
             <p>
-                Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions" target="_blank" rel="noreferrer">GitHub Discussion</a>. <a href="https://github.com/VaclavElias/vaclavelias2.github.io/blob/main/vaclavelias.github.io/./posts/2019-06-01-configuration-experiment-aspnet.core-remote-json-file.md" target="_blank" rel="noreferrer">Edit</a> this page on <svg style="margin-top: -6px;" width="16" height="16" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                Any comments? You can start 🗨 at <a href="https://github.com/VaclavElias/vaclavelias.github.io/discussions" target="_blank" rel="noreferrer">GitHub Discussion</a>. <a href="https://github.com/VaclavElias/vaclavelias2.github.io/blob/main/vaclavelias.github.io/./posts/2022-12-19-code-reference-example.md" target="_blank" rel="noreferrer">Edit</a> this page on <svg style="margin-top: -6px;" width="16" height="16" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="#1B1F23" />
                 </svg>.
             </p>
@@ -73,13 +70,13 @@
     
     <div class="col-md-6 mb-4">
         
+        <div class="post-card">
+            <h5>Previous Post</h5>
+            <a class="prev stretched-link" href="/stride3d/stride3d-minimal-api-code-only/">Stride minimal API / Code only approach</a>
+        </div>
+        
     </div>
     <div class="col-md-6 text-md-end">
-        
-        <div class="post-card">
-            <h5>Next Post</h5>
-            <a class="next stretched-link" href="/dotnet/visual-studio-debugger-enumerable-visualizer/">Visual Studio Debugger Enumerable Visualizer</a>
-        </div>
         
     </div>
 </div>

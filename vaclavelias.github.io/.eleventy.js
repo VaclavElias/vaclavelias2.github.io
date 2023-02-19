@@ -11,6 +11,11 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("assets/img");
     eleventyConfig.addPassthroughCopy("favicon.ico");
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/lunr/lunr.min.js": "assets/scripts/lunr.min.js",
+        "../../../../api-bureau/all-apis/src/ApiBureau.AllApis.Console/Program.cs": "Program3.cs"
+    });
+
     eleventyConfig.exc
 
     //eleventyConfig.addCollection("posts", (collection) => {
@@ -52,6 +57,22 @@ module.exports = function (eleventyConfig) {
         return JSON.stringify(variable);
     });
 
+    eleventyConfig.addFilter('normalize_whitespace', function (text) {
+
+        //Remove tabs
+        text = text.replace(/\t/g, '');
+
+        text = text.replace(/\r/g, '');
+
+        //Remove big spaces and punctuation
+        text = text.replace(/\n/g, ' ');
+
+        //remove repeated spaces
+        text = text.replace(/ +(?= )/g, '');
+
+        return text;
+    });
+
     eleventyConfig.setFrontMatterParsingOptions({
         excerpt: true,
         // Optional, default is "---"
@@ -63,7 +84,7 @@ module.exports = function (eleventyConfig) {
             .getFilteredByTag('blog')
             .reduce((tags, item) => tags.concat(item.data.tags), [])
             .filter((tag) => !!tag)
-            .filter((tag) => !!tag && !['page', 'blog'].includes(tag))
+            .filter((tag) => !!tag && !['page', 'blog', 'search'].includes(tag))
             .sort();
         return Array.from(new Set(uniqueTags));
     });
@@ -93,4 +114,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setLibrary("md", markdownLibrary);
 
     eleventyConfig.addPlugin(pluginRss);
+
+    return {
+        dir: {
+            layouts: "_layouts"
+        }
+    };
 };
