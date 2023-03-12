@@ -9,7 +9,9 @@ tags:
 image: /assets/img/dotnet-bot_scene_juggling-small.png
 ---
 ```csharp
-{% include ../Program.cs %}
+{% include ../.cache/eleventy-fetch-7b86b1ec865132b37664e1ebf008e3.cs %}
 ```
 
-[!code-csharp[AnimationBasics](../Program.cs)]
+```csharp
+{% include ../Program.cs %}
+```

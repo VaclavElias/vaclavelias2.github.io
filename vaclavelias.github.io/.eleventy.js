@@ -4,6 +4,7 @@ const path = require("node:path");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const EleventyFetch = require("@11ty/eleventy-fetch");
 
 module.exports = function (eleventyConfig) {
 
@@ -114,6 +115,13 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setLibrary("md", markdownLibrary);
 
     eleventyConfig.addPlugin(pluginRss);
+
+    let url = "https://raw.githubusercontent.com/stride3d/stride/master/samples/Tutorials/CSharpIntermediate/CSharpIntermediate/CSharpIntermediate.Game/07_Animation/AnimationBasics.cs";
+
+    EleventyFetch(url, {
+        duration: "1d",
+        type: "cs"
+    });
 
     return {
         dir: {
