@@ -18,7 +18,7 @@
 <article class="search-main">
     <div class="row justify-content-center pt-3 pb-1">
         <div class="col-12 post-card-header">
-            <h4 class="entry-title"><a href="${post.url}">${post.title}</a></h3>
+            <h4 class="entry-title"><a href="${post.url}">${post.title}</a></h4>
             <p>${getDate(post.date)}</p>
             <p>${post.author}</p>
             <p>
@@ -62,6 +62,7 @@
 
     if (searchTerm) {
         document.getElementById('search-result-term').textContent = searchTerm;
+        document.getElementById('search-text').value = searchTerm;
 
         fetch('/search.json')
             .then(response => response.json())
