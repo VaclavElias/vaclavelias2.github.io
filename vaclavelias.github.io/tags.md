@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Blog Tags - Vaclav Elias
+title: Blog Tags
 tags: search
 ---
-Blog Tags
+Welcome to the Tags page, where you can explore all the blog posts grouped by topic.
 <!-- excerpt -->
-# Tags
 {% assign sorted_tags = collections.tagList %}
 {% for tag in sorted_tags %}
   <h3>{{ tag | replace: "-"," " }}</h3>

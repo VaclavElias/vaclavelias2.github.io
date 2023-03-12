@@ -63,22 +63,22 @@
     "url":"https://www.vaclavelias.com/dotnet/code-reference-example/",
     "content":"var builder = WebApplication.CreateBuilder(args);var app = builder.Build();app.MapGet(\"/\", () => \"Hello World!\");app.Run();[!code-csharpAnimationBasics]"
   },{
-    "title":"Blog Archive - Vaclav Elias",
-    "excerpt": "Blog Archive ",
+    "title":"Blog Archive",
+    "excerpt": " Welcome to the Blog Archive page. Explore the blog's archive of .NET and C# posts, organized by year. Catch up on past content and discover new insights, tips, and...",
     "author": "",
     "date": "",
     "category": "",
     "tags": "search",
     "url":"https://www.vaclavelias.com/archive/",
-    "content":"Blog ArchiveArchive 🔗2022Dec 19 C# code reference in 11tyMay 13 Stride minimal API / Code only approach2021May 24 Visual Studio AdvanceApr 03 Visual Studio Intro2020Oct 31 Jazor experiment2019Jun 11 Visual Studio Debugger Enumerable VisualizerJun 01 Configuration experiment in ASP.NET Core – RemoteJsonFile"
+    "content":"Welcome to the Blog Archive page. Explore the blog's archive of .NET and C# posts, organized by year. Catch up on past content and discover new insights, tips, and inspiration.2022Dec 19 C# code reference in 11tyMay 13 Stride minimal API / Code only approach2021May 24 Visual Studio AdvanceApr 03 Visual Studio Intro2020Oct 31 Jazor experiment2019Jun 11 Visual Studio Debugger Enumerable VisualizerJun 01 Configuration experiment in ASP.NET Core – RemoteJsonFile"
   },{
-    "title":"Blog Tags - Vaclav Elias",
-    "excerpt": "Blog Tags ",
+    "title":"Blog Tags",
+    "excerpt": "Welcome to the Tags page, where you can explore all the blog posts grouped by topic. ",
     "author": "",
     "date": "",
     "category": "",
     "tags": "search",
     "url":"https://www.vaclavelias.com/tags/",
-    "content":"Blog TagsTags 🔗 .NET Stride minimal API / Code only approachC# code reference in 11ty ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approachC# code reference in 11ty Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
+    "content":"Welcome to the Tags page, where you can explore all the blog posts grouped by topic. .NET Stride minimal API / Code only approachC# code reference in 11ty ASP.NET Core Configuration experiment in ASP.NET Core – RemoteJsonFileJazor experiment Advance Jazor experimentVisual Studio Advance Beginner Visual Studio Intro C# Configuration experiment in ASP.NET Core – RemoteJsonFileVisual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio AdvanceStride minimal API / Code only approachC# code reference in 11ty Game Stride minimal API / Code only approach Stride3D Stride minimal API / Code only approach TypeScript Jazor experiment Visual Studio Visual Studio Debugger Enumerable VisualizerVisual Studio IntroVisual Studio Advance "
   }
 ]

@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Blog Archive - Vaclav Elias
+title: Blog Archive
 tags: search
 ---
-Blog Archive
+ Welcome to the Blog Archive page. Explore the blog's archive of .NET and C# posts, organized by year. Catch up on past content and discover new insights, tips, and inspiration.
 <!-- excerpt -->
-# Archive
 {% assign reversedPosts = collections.blog | reverse %}
 {% for year in collections.yearList %}
 <h3>{{ year }}</h3>
