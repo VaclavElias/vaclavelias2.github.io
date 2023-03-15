@@ -28,9 +28,6 @@
     <loc>https://www.vaclavelias.com/blog/</loc>
   </url>
   <url>
-    <loc>https://www.vaclavelias.com/dotnet/code-reference-example/</loc>
-  </url>
-  <url>
     <loc>https://www.vaclavelias.com/archive/</loc>
   </url>
   <url>
@@ -50,5 +47,8 @@
   </url>
   <url>
     <loc>https://www.vaclavelias.com/tags.html</loc>
+  </url>
+  <url>
+    <loc>https://www.vaclavelias.com/dotnet/remote-csharp-code-reference-example/</loc>
   </url>
 </urlset>

@@ -116,12 +116,30 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPlugin(pluginRss);
 
-    let url = "https://raw.githubusercontent.com/stride3d/stride/master/samples/Tutorials/CSharpIntermediate/CSharpIntermediate/CSharpIntermediate.Game/07_Animation/AnimationBasics.cs";
+    eleventyConfig.addAsyncShortcode("remote_include", async function (url) {
 
-    EleventyFetch(url, {
-        duration: "1d",
-        type: "cs"
+        const sample = await EleventyFetch(url, {
+            duration: "1d"
+        });
+
+        return sample;
     });
+
+    //eleventyConfig.addAsyncShortcode("remote_include2", async function (urlPath) {
+    //    const DOMAIN = "https://raw.githubusercontent.com/stride3d/stride/"
+    //    if (urlPath.startsWith("/")) {
+    //        // Make sure the `urlPath` doesn't start with `/` otherwise it will remove
+    //        // the GitHub repo org/name from the path.
+    //        urlPath = urlPath.slice(1);
+    //    }
+    //    const url = new URL(urlPath, DOMAIN).href;
+    //    const sample = await EleventyFetch(url, {
+    //        duration: "1d",
+    //        type: "cs",
+    //    });
+
+    //    return sample;
+    //});
 
     return {
         dir: {
